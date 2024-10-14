@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.transactions = new FontAwesome.Sharp.IconMenuItem();
+            this.reports_consults = new FontAwesome.Sharp.IconMenuItem();
+            this.utils = new FontAwesome.Sharp.IconMenuItem();
+            this.help = new FontAwesome.Sharp.IconMenuItem();
             this.menuTitle = new System.Windows.Forms.MenuStrip();
             this.title = new System.Windows.Forms.Label();
-            this.help = new FontAwesome.Sharp.IconMenuItem();
-            this.utils = new FontAwesome.Sharp.IconMenuItem();
-            this.reports_consults = new FontAwesome.Sharp.IconMenuItem();
-            this.transactions = new FontAwesome.Sharp.IconMenuItem();
+            this.container = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +50,58 @@
             this.help});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(990, 84);
+            this.menu.Size = new System.Drawing.Size(1038, 83);
             this.menu.TabIndex = 0;
             this.menu.Text = "menu";
+            // 
+            // transactions
+            // 
+            this.transactions.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
+            this.transactions.IconColor = System.Drawing.Color.Black;
+            this.transactions.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.transactions.IconSize = 50;
+            this.transactions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.transactions.Name = "transactions";
+            this.transactions.Size = new System.Drawing.Size(135, 79);
+            this.transactions.Text = "Transacciones";
+            this.transactions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // reports_consults
+            // 
+            this.reports_consults.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
+            this.reports_consults.IconColor = System.Drawing.Color.Black;
+            this.reports_consults.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.reports_consults.IconSize = 50;
+            this.reports_consults.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.reports_consults.Name = "reports_consults";
+            this.reports_consults.Size = new System.Drawing.Size(194, 79);
+            this.reports_consults.Text = "Reportes y Consultas";
+            this.reports_consults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // utils
+            // 
+            this.utils.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
+            this.utils.IconColor = System.Drawing.Color.Black;
+            this.utils.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.utils.IconSize = 50;
+            this.utils.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.utils.Name = "utils";
+            this.utils.Size = new System.Drawing.Size(106, 79);
+            this.utils.Text = "Utilidades";
+            this.utils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // help
+            // 
+            this.help.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.help.IconColor = System.Drawing.Color.Black;
+            this.help.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.help.IconSize = 50;
+            this.help.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(79, 79);
+            this.help.Text = "Ayuda";
+            this.help.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.help.Click += new System.EventHandler(this.iconMenuItem1_Click);
             // 
             // menuTitle
             // 
@@ -62,7 +112,7 @@
             this.menuTitle.Location = new System.Drawing.Point(0, 0);
             this.menuTitle.Name = "menuTitle";
             this.menuTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitle.Size = new System.Drawing.Size(990, 72);
+            this.menuTitle.Size = new System.Drawing.Size(1038, 72);
             this.menuTitle.TabIndex = 1;
             this.menuTitle.Text = "menuTitulo";
             // 
@@ -79,70 +129,27 @@
             this.title.Text = "PRESSTANK";
             this.title.Click += new System.EventHandler(this.label1_Click);
             // 
-            // help
+            // container
             // 
-            this.help.AutoSize = false;
-            this.help.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.help.IconColor = System.Drawing.Color.Black;
-            this.help.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.help.IconSize = 50;
-            this.help.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(182, 80);
-            this.help.Text = "Ayuda";
-            this.help.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.help.Click += new System.EventHandler(this.iconMenuItem1_Click);
-            // 
-            // utils
-            // 
-            this.utils.AutoSize = false;
-            this.utils.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.utils.IconColor = System.Drawing.Color.Black;
-            this.utils.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.utils.IconSize = 50;
-            this.utils.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.utils.Name = "utils";
-            this.utils.Size = new System.Drawing.Size(182, 80);
-            this.utils.Text = "Utilidades";
-            this.utils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // reports_consults
-            // 
-            this.reports_consults.AutoSize = false;
-            this.reports_consults.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
-            this.reports_consults.IconColor = System.Drawing.Color.Black;
-            this.reports_consults.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.reports_consults.IconSize = 50;
-            this.reports_consults.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.reports_consults.Name = "reports_consults";
-            this.reports_consults.Size = new System.Drawing.Size(182, 80);
-            this.reports_consults.Text = "Reportes y Consultas";
-            this.reports_consults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // transactions
-            // 
-            this.transactions.AutoSize = false;
-            this.transactions.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
-            this.transactions.IconColor = System.Drawing.Color.Black;
-            this.transactions.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.transactions.IconSize = 50;
-            this.transactions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.transactions.Name = "transactions";
-            this.transactions.Size = new System.Drawing.Size(182, 80);
-            this.transactions.Text = "Transacciones";
-            this.transactions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.container.Location = new System.Drawing.Point(0, 155);
+            this.container.Name = "container";
+            this.container.Size = new System.Drawing.Size(1038, 541);
+            this.container.TabIndex = 3;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 696);
+            this.ClientSize = new System.Drawing.Size(1038, 696);
+            this.Controls.Add(this.container);
             this.Controls.Add(this.title);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.menuTitle);
             this.MainMenuStrip = this.menu;
             this.Name = "Home";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
@@ -160,6 +167,7 @@
         private FontAwesome.Sharp.IconMenuItem transactions;
         private FontAwesome.Sharp.IconMenuItem reports_consults;
         private FontAwesome.Sharp.IconMenuItem utils;
+        private System.Windows.Forms.Panel container;
     }
 }
 
