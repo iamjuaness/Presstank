@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,24 +13,19 @@ namespace PresentationLayer
 {
     public partial class Home : Form
     {
-        public Home()
+
+        private static Usuario usuarioAct;
+        private static Empleado infoUsuario;
+        public Home( Usuario objUsuario, Empleado objEmpleado)
         {
+            usuarioAct = objUsuario;
+            infoUsuario = objEmpleado;
             InitializeComponent();
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconMenuItem1_Click(object sender, EventArgs e)
-        {
-
+            txtNameUser.Text = infoUsuario.Nombre.ToString();
         }
     }
 }

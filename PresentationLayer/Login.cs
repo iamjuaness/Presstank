@@ -32,9 +32,11 @@ namespace PresentationLayer
             Usuario usuario = new BL_Usuario().getUsuarios().Where(u => u.Nombre_Usuario == txtEmail.Text && u.Contrasenia ==
             txtClave.Text).FirstOrDefault();
 
+            Empleado empleado = new BL_Empleado().getEmpleadoByID(usuario.ID_Usuario);
+
             if(usuario != null)
             {
-                Home form = new Home();
+                Home form = new Home(usuario, empleado);
 
                 form.Show();
                 this.Hide();

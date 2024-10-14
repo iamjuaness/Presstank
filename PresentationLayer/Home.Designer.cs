@@ -36,6 +36,8 @@
             this.menuTitle = new System.Windows.Forms.MenuStrip();
             this.title = new System.Windows.Forms.Label();
             this.container = new System.Windows.Forms.Panel();
+            this.txtUsuario = new System.Windows.Forms.Label();
+            this.txtNameUser = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +103,6 @@
             this.help.Size = new System.Drawing.Size(79, 79);
             this.help.Text = "Ayuda";
             this.help.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.help.Click += new System.EventHandler(this.iconMenuItem1_Click);
             // 
             // menuTitle
             // 
@@ -127,7 +128,6 @@
             this.title.Size = new System.Drawing.Size(235, 40);
             this.title.TabIndex = 2;
             this.title.Text = "PRESSTANK";
-            this.title.Click += new System.EventHandler(this.label1_Click);
             // 
             // container
             // 
@@ -137,11 +137,37 @@
             this.container.Size = new System.Drawing.Size(1038, 541);
             this.container.TabIndex = 3;
             // 
+            // txtUsuario
+            // 
+            this.txtUsuario.AutoSize = true;
+            this.txtUsuario.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.White;
+            this.txtUsuario.Location = new System.Drawing.Point(692, 18);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(102, 29);
+            this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.Text = "Usuario:";
+            // 
+            // txtNameUser
+            // 
+            this.txtNameUser.AutoSize = true;
+            this.txtNameUser.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameUser.ForeColor = System.Drawing.Color.White;
+            this.txtNameUser.Location = new System.Drawing.Point(800, 18);
+            this.txtNameUser.Name = "txtNameUser";
+            this.txtNameUser.Size = new System.Drawing.Size(60, 29);
+            this.txtNameUser.TabIndex = 5;
+            this.txtNameUser.Text = "user";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 696);
+            this.Controls.Add(this.txtNameUser);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.container);
             this.Controls.Add(this.title);
             this.Controls.Add(this.menu);
@@ -168,6 +194,8 @@
         private FontAwesome.Sharp.IconMenuItem reports_consults;
         private FontAwesome.Sharp.IconMenuItem utils;
         private System.Windows.Forms.Panel container;
+        private System.Windows.Forms.Label txtUsuario;
+        private System.Windows.Forms.Label txtNameUser;
     }
 }
 
