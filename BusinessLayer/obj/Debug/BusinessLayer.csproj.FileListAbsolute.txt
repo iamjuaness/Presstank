@@ -1,0 +1,11 @@
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\bin\Debug\DateLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\bin\Debug\EntityLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\bin\Debug\DateLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\obj\Debug\Business.EA331CBA.Up2Date
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\BusinessLayer\obj\Debug\BusinessLayer.pdb

@@ -41,8 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Bitacora.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="Empleado.cs" />
+    <Compile Include="Estado_Solicitud.cs" />
+    <Compile Include="Municipio.cs" />
+    <Compile Include="Nivel_Usuario.cs" />
+    <Compile Include="Pago_Cuota.cs" />
+    <Compile Include="Periodo.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solicitud.cs" />
+    <Compile Include="Sucursal.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

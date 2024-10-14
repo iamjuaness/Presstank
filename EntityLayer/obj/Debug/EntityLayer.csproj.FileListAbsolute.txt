@@ -1,0 +1,6 @@
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\EntityLayer\bin\Debug\EntityLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\EntityLayer\bin\Debug\EntityLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\EntityLayer\obj\Debug\EntityLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\EntityLayer\obj\Debug\EntityLayer.pdb

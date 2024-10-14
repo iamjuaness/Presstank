@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using BusinessLayer;
+using EntityLayer;
+
 namespace PresentationLayer
 {
     public partial class Login : Form
@@ -24,12 +27,26 @@ namespace PresentationLayer
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Home form = new Home();
+            List<Usuario> TEST = new BL_Usuario().getUsuarios();
 
-            form.Show();
-            this.Hide();
+            Usuario usuario = new BL_Usuario().getUsuarios().Where(u => u.Nombre_Usuario == txtEmail.Text && u.Contrasenia ==
+            txtClave.Text).FirstOrDefault();
 
-            form.FormClosing += frm_closing;
+            if(usuario != null)
+            {
+                Home form = new Home();
+
+                form.Show();
+                this.Hide();
+
+                form.FormClosing += frm_closing;
+
+            } else
+            {
+                MessageBox.Show("No se encontró el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)

@@ -11,3 +11,9 @@ C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\P
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.Home.resources
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.Login.resources
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\Presenta.9C561136.Up2Date
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\BusinessLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\EntityLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\DateLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\EntityLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\DateLayer.pdb
