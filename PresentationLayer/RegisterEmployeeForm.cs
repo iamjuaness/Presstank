@@ -136,6 +136,11 @@ namespace PresentationLayer
                 {
                     MessageBox.Show("Empleado y usuario registrados exitosamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields(); // Limpiar los campos después del registro
+
+                    Login login = new Login();
+
+                    login.Show();
+                    this.Close();
                 }
                 else
                 {
@@ -159,6 +164,11 @@ namespace PresentationLayer
             cmbIDSucursal.SelectedIndex = -1;
             cmbIDCargo.SelectedIndex = -1;
             cmbIDNivel.SelectedIndex = -1;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
