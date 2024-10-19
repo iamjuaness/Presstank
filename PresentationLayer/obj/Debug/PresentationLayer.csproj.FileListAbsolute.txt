@@ -17,3 +17,4 @@ C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\P
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\BusinessLayer.pdb
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\EntityLayer.pdb
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\bin\Debug\DateLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.RegisterEmployeeForm.resources

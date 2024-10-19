@@ -34,7 +34,7 @@ namespace PresentationLayer
 
             Empleado empleado = new BL_Empleado().getEmpleadoByID(usuario.ID_Usuario);
 
-            if(usuario != null)
+            if(usuario != null && empleado != null)
             {
                 Home form = new Home(usuario, empleado);
 

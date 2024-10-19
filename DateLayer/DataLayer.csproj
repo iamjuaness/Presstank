@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DL_Cargo.cs" />
     <Compile Include="DL_Empleado.cs" />
+    <Compile Include="DL_Nivel.cs" />
+    <Compile Include="DL_Sucursal.cs" />
     <Compile Include="DL_Usuario.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

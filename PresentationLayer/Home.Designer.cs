@@ -52,7 +52,7 @@
             this.help});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1038, 83);
+            this.menu.Size = new System.Drawing.Size(1038, 85);
             this.menu.TabIndex = 0;
             this.menu.Text = "menu";
             // 
@@ -64,9 +64,10 @@
             this.transactions.IconSize = 50;
             this.transactions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.transactions.Name = "transactions";
-            this.transactions.Size = new System.Drawing.Size(135, 79);
+            this.transactions.Size = new System.Drawing.Size(135, 81);
             this.transactions.Text = "Transacciones";
             this.transactions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.transactions.Click += new System.EventHandler(this.transactions_Click);
             // 
             // reports_consults
             // 
@@ -76,7 +77,7 @@
             this.reports_consults.IconSize = 50;
             this.reports_consults.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.reports_consults.Name = "reports_consults";
-            this.reports_consults.Size = new System.Drawing.Size(194, 79);
+            this.reports_consults.Size = new System.Drawing.Size(194, 81);
             this.reports_consults.Text = "Reportes y Consultas";
             this.reports_consults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -88,7 +89,7 @@
             this.utils.IconSize = 50;
             this.utils.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.utils.Name = "utils";
-            this.utils.Size = new System.Drawing.Size(106, 79);
+            this.utils.Size = new System.Drawing.Size(106, 81);
             this.utils.Text = "Utilidades";
             this.utils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -100,7 +101,7 @@
             this.help.IconSize = 50;
             this.help.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(79, 79);
+            this.help.Size = new System.Drawing.Size(79, 81);
             this.help.Text = "Ayuda";
             this.help.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -132,9 +133,9 @@
             // container
             // 
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.container.Location = new System.Drawing.Point(0, 155);
+            this.container.Location = new System.Drawing.Point(0, 157);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(1038, 541);
+            this.container.Size = new System.Drawing.Size(1038, 539);
             this.container.TabIndex = 3;
             // 
             // txtUsuario

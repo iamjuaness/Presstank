@@ -27,5 +27,10 @@ namespace PresentationLayer
         {
             txtNameUser.Text = infoUsuario.Nombre.ToString();
         }
+
+        private void transactions_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

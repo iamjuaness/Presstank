@@ -16,5 +16,10 @@ namespace BusinessLayer
         {
             return objdl_empleado.GetEmpleadoByID(userId);
         }
+
+        public bool RegisterEmployeeAndUser(Empleado empleado, Usuario usuario)
+        {
+            return objdl_empleado.RegisterEmployeeAndUser(empleado, usuario);
+        }
     }
 }
