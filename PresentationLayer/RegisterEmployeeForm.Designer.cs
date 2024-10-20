@@ -295,8 +295,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblIDSucursal;
         private System.Windows.Forms.ComboBox cmbIDSucursal;
-        private System.Windows.Forms.Label lblIDUsuario;
-        private System.Windows.Forms.TextBox txtIDUsuario;
         private System.Windows.Forms.Label lblIDCargo;
         private System.Windows.Forms.ComboBox cmbIDCargo;
         private System.Windows.Forms.Label lblNombreUsuario;

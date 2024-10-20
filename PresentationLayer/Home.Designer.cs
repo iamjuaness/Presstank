@@ -30,6 +30,8 @@
         {
             this.menu = new System.Windows.Forms.MenuStrip();
             this.transactions = new FontAwesome.Sharp.IconMenuItem();
+            this.requestLoan = new FontAwesome.Sharp.IconMenuItem();
+            this.payLoanInstallment = new FontAwesome.Sharp.IconMenuItem();
             this.reports_consults = new FontAwesome.Sharp.IconMenuItem();
             this.utils = new FontAwesome.Sharp.IconMenuItem();
             this.help = new FontAwesome.Sharp.IconMenuItem();
@@ -52,22 +54,48 @@
             this.help});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1038, 85);
+            this.menu.Size = new System.Drawing.Size(1038, 83);
             this.menu.TabIndex = 0;
             this.menu.Text = "menu";
             // 
             // transactions
             // 
+            this.transactions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requestLoan,
+            this.payLoanInstallment});
             this.transactions.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
             this.transactions.IconColor = System.Drawing.Color.Black;
             this.transactions.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.transactions.IconSize = 50;
             this.transactions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.transactions.Name = "transactions";
-            this.transactions.Size = new System.Drawing.Size(135, 81);
+            this.transactions.Size = new System.Drawing.Size(135, 79);
             this.transactions.Text = "Transacciones";
             this.transactions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.transactions.Click += new System.EventHandler(this.transactions_Click);
+            // 
+            // requestLoan
+            // 
+            this.requestLoan.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
+            this.requestLoan.IconColor = System.Drawing.Color.Black;
+            this.requestLoan.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.requestLoan.IconSize = 40;
+            this.requestLoan.Name = "requestLoan";
+            this.requestLoan.Size = new System.Drawing.Size(256, 34);
+            this.requestLoan.Text = "Solicitar Préstamo";
+            this.requestLoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.requestLoan.Click += new System.EventHandler(this.requestLoan_Click);
+            // 
+            // payLoanInstallment
+            // 
+            this.payLoanInstallment.IconChar = FontAwesome.Sharp.IconChar.CreditCardAlt;
+            this.payLoanInstallment.IconColor = System.Drawing.Color.Black;
+            this.payLoanInstallment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.payLoanInstallment.IconSize = 40;
+            this.payLoanInstallment.Name = "payLoanInstallment";
+            this.payLoanInstallment.Size = new System.Drawing.Size(256, 34);
+            this.payLoanInstallment.Text = "Pagar Cuota";
+            this.payLoanInstallment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.payLoanInstallment.Click += new System.EventHandler(this.payLoanInstallment_Click);
             // 
             // reports_consults
             // 
@@ -77,7 +105,7 @@
             this.reports_consults.IconSize = 50;
             this.reports_consults.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.reports_consults.Name = "reports_consults";
-            this.reports_consults.Size = new System.Drawing.Size(194, 81);
+            this.reports_consults.Size = new System.Drawing.Size(194, 79);
             this.reports_consults.Text = "Reportes y Consultas";
             this.reports_consults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -89,7 +117,7 @@
             this.utils.IconSize = 50;
             this.utils.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.utils.Name = "utils";
-            this.utils.Size = new System.Drawing.Size(106, 81);
+            this.utils.Size = new System.Drawing.Size(106, 79);
             this.utils.Text = "Utilidades";
             this.utils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -101,7 +129,7 @@
             this.help.IconSize = 50;
             this.help.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(79, 81);
+            this.help.Size = new System.Drawing.Size(79, 79);
             this.help.Text = "Ayuda";
             this.help.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -133,9 +161,9 @@
             // container
             // 
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.container.Location = new System.Drawing.Point(0, 157);
+            this.container.Location = new System.Drawing.Point(0, 155);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(1038, 539);
+            this.container.Size = new System.Drawing.Size(1038, 541);
             this.container.TabIndex = 3;
             // 
             // txtUsuario
@@ -194,6 +222,8 @@
         private FontAwesome.Sharp.IconMenuItem transactions;
         private FontAwesome.Sharp.IconMenuItem reports_consults;
         private FontAwesome.Sharp.IconMenuItem utils;
+        private FontAwesome.Sharp.IconMenuItem requestLoan;
+        private FontAwesome.Sharp.IconMenuItem payLoanInstallment;
         private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label txtUsuario;
         private System.Windows.Forms.Label txtNameUser;

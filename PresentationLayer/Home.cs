@@ -21,6 +21,7 @@ namespace PresentationLayer
             usuarioAct = objUsuario;
             infoUsuario = objEmpleado;
             InitializeComponent();
+            this.IsMdiContainer = true;
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -28,9 +29,32 @@ namespace PresentationLayer
             txtNameUser.Text = infoUsuario.Nombre.ToString();
         }
 
-        private void transactions_Click(object sender, EventArgs e)
+        // Método para abrir el formulario de solicitud de préstamo
+        private void requestLoan_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                RequestLoanForm requestLoanForm = new RequestLoanForm();
+                requestLoanForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al mostrar el formulario de solicitud de préstamo: {ex.Message}");
+            }
         }
+
+        private void payLoanInstallment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PayLoanInstallmentForm payLoanInstallmentForm = new PayLoanInstallmentForm();
+                payLoanInstallmentForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al mostrar el formulario de pago de cuota: {ex.Message}");
+            }
+        }
+
     }
 }

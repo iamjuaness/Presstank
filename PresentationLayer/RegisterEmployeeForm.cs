@@ -41,6 +41,7 @@ namespace PresentationLayer
                     cmbIDSucursal.DataSource = sucursales;
                     cmbIDSucursal.DisplayMember = "Nombre_Sucursal";
                     cmbIDSucursal.ValueMember = "ID_Sucursal";
+                    cmbIDSucursal.SelectedIndex = -1;
                     Console.WriteLine($"{sucursales.Count} sucursales cargadas.");
                 }
                 else
@@ -57,6 +58,7 @@ namespace PresentationLayer
                     cmbIDCargo.DataSource = cargos;
                     cmbIDCargo.DisplayMember = "Nombre_Cargo";
                     cmbIDCargo.ValueMember = "ID_Cargo";
+                    cmbIDCargo.SelectedIndex = -1;
                     Console.WriteLine($"{cargos.Count} cargos cargados.");
                 }
                 else
@@ -74,6 +76,7 @@ namespace PresentationLayer
                     cmbIDNivel.DataSource = niveles;
                     cmbIDNivel.DisplayMember = "Nivel";
                     cmbIDNivel.ValueMember = "ID_Nivel";
+                    cmbIDNivel.SelectedIndex = -1;
                     Console.WriteLine($"{niveles.Count} niveles cargados.");
                 }
                 else
