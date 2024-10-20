@@ -1,6 +1,7 @@
 ﻿using EntityLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,43 @@ namespace DateLayer
             }
 
             return niveles;
+        }
+
+        public Nivel_Usuario GetNivelByID(int ID)
+        {
+            Nivel_Usuario nivel = new Nivel_Usuario();
+
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = "SELECT Nivel FROM Nivel_Usuario WHERE ID_Nivel == @ID_Nivel";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@ID_Nivel", ID);
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nivel = new Nivel_Usuario()
+                            {
+                                ID_Nivel = ID,
+                                Nivel = reader["Nivel"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    nivel = null;
+                }
+
+                return nivel;
+            }
         }
     }
 }

@@ -40,6 +40,7 @@
             this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,7 @@
             this.requestLoan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.requestLoan.IconSize = 40;
             this.requestLoan.Name = "requestLoan";
-            this.requestLoan.Size = new System.Drawing.Size(256, 34);
+            this.requestLoan.Size = new System.Drawing.Size(270, 34);
             this.requestLoan.Text = "Solicitar Préstamo";
             this.requestLoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.requestLoan.Click += new System.EventHandler(this.requestLoan_Click);
@@ -92,13 +93,15 @@
             this.payLoanInstallment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.payLoanInstallment.IconSize = 40;
             this.payLoanInstallment.Name = "payLoanInstallment";
-            this.payLoanInstallment.Size = new System.Drawing.Size(256, 34);
+            this.payLoanInstallment.Size = new System.Drawing.Size(270, 34);
             this.payLoanInstallment.Text = "Pagar Cuota";
             this.payLoanInstallment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.payLoanInstallment.Click += new System.EventHandler(this.payLoanInstallment_Click);
             // 
             // reports_consults
             // 
+            this.reports_consults.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportesToolStripMenuItem});
             this.reports_consults.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
             this.reports_consults.IconColor = System.Drawing.Color.Black;
             this.reports_consults.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -190,6 +193,13 @@
             this.txtNameUser.TabIndex = 5;
             this.txtNameUser.Text = "user";
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -227,6 +237,7 @@
         private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label txtUsuario;
         private System.Windows.Forms.Label txtNameUser;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }
 

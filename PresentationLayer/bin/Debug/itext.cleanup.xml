@@ -1,0 +1,1389 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>itext.cleanup</name>
+    </assembly>
+    <members>
+        <member name="T:iText.PdfCleanup.Actions.Data.PdfSweepProductData">
+            <summary>
+            Stores an instance of
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            related to iText pdfSweep module.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Actions.Data.PdfSweepProductData.GetInstance">
+            <summary>
+            Getter for an instance of
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            related to iText pdfSweep module.
+            </summary>
+            <returns>iText pdfSweep product description</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Actions.Event.PdfSweepProductEvent">
+            <summary>Class represents events registered in iText cleanup module.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.Actions.Event.PdfSweepProductEvent.CLEANUP_PDF">
+            <summary>Cleanup event type description.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Actions.Event.PdfSweepProductEvent.#ctor(iText.Commons.Actions.Sequence.SequenceId,iText.Commons.Actions.Contexts.IMetaInfo,System.String)">
+            <summary>Creates an event associated with a general identifier and additional meta data.</summary>
+            <param name="sequenceId">is an identifier associated with the event</param>
+            <param name="metaInfo">is an additional meta info</param>
+            <param name="eventType">is a string description of the event</param>
+        </member>
+        <member name="M:iText.PdfCleanup.Actions.Event.PdfSweepProductEvent.CreateCleanupPdfEvent(iText.Commons.Actions.Sequence.SequenceId,iText.Commons.Actions.Contexts.IMetaInfo)">
+            <summary>Creates a cleanup-pdf event which associated with a general identifier and additional meta data.</summary>
+            <param name="sequenceId">is an identifier associated with the event</param>
+            <param name="metaInfo">is an additional meta info</param>
+            <returns>the cleanup-pdf event</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Autosweep.CommonRegex">
+            <summary>This class contains some of the more common regular expressions to be used for redaction.</summary>
+            <remarks>
+            This class contains some of the more common regular expressions to be used for redaction.
+            Most of these are copied verbatim from the "regular expression cookbook 2nd edition".
+            </remarks>
+        </member>
+        <member name="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">
+            <summary>
+            This class is a composite pattern for
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy"/>.
+            </summary>
+            <remarks>
+            This class is a composite pattern for
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy"/>.
+            It allows users to have multiple ICleanupStrategy implementations and bundle them as one.
+            </remarks>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.#ctor">
+            <summary>
+            Creates a
+            <see cref="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">composite pattern</see>
+            for
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">cleanup strategies</see>.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.Add(iText.PdfCleanup.Autosweep.ICleanupStrategy)">
+            <summary>
+            Adds a
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">cleanup strategy</see>
+            to this
+            <see cref="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">composite pattern</see>.
+            </summary>
+            <param name="strategy">
+            a
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">cleanup strategy</see>
+            to be added to this
+            <see cref="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">composite pattern</see>.
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.GetResultantLocations">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.GetRedactionColor(iText.Kernel.Pdf.Canvas.Parser.Listener.IPdfTextLocation)">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.EventOccurred(iText.Kernel.Pdf.Canvas.Parser.Data.IEventData,iText.Kernel.Pdf.Canvas.Parser.EventType)">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.GetSupportedEvents">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy.Reset">
+            <summary>
+            Returns a
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">cleanup strategy</see>
+            which represents
+            a reset
+            <see cref="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">composite cleanup strategy</see>.
+            </summary>
+            <remarks>
+            Returns a
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">cleanup strategy</see>
+            which represents
+            a reset
+            <see cref="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">composite cleanup strategy</see>.
+            <para />
+            Note that all the inner
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">strategies</see>
+            will be reset as well.
+            </remarks>
+            <returns>
+            a reset
+            <see cref="T:iText.PdfCleanup.Autosweep.CompositeCleanupStrategy">composite strategy</see>
+            </returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">
+            <summary>
+            This class represents a generic cleanup strategy to be used with
+            <see cref="T:iText.PdfCleanup.PdfCleaner"/>
+            or
+            <see cref="T:iText.PdfCleanup.Autosweep.PdfAutoSweepTools"/>
+            ICleanupStrategy must implement Cloneable to ensure a strategy can be reset after having handled a page.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.ICleanupStrategy.GetRedactionColor(iText.Kernel.Pdf.Canvas.Parser.Listener.IPdfTextLocation)">
+            <summary>Get the color in which redaction is to take place</summary>
+            <param name="location">where to get the redaction color from</param>
+            <returns>
+            a
+            <see cref="T:iText.Kernel.Colors.Color"/>
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.ICleanupStrategy.Reset">
+            <summary>
+            ICleanupStrategy objects have to be reset at times
+            <c>PdfAutoSweep</c>
+            will use the same strategy for all pages,
+            and expects to receive only the rectangles from the last page as output.
+            </summary>
+            <remarks>
+            ICleanupStrategy objects have to be reset at times
+            <c>PdfAutoSweep</c>
+            will use the same strategy for all pages,
+            and expects to receive only the rectangles from the last page as output.
+            Hence the reset method.
+            </remarks>
+            <returns>a clone of this Object</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Autosweep.PdfAutoSweepTools">
+            <summary>Class that automatically extracts all regions of interest from a given PdfDocument and redacts them.
+                </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.#ctor(iText.PdfCleanup.Autosweep.ICleanupStrategy)">
+            <summary>Construct a new instance of PdfAutoSweepTools with a given ICleanupStrategy</summary>
+            <param name="strategy">the redaction strategy to be used</param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.Highlight(iText.Kernel.Pdf.PdfDocument)">
+            <summary>
+            Highlight areas of interest in a given
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            </summary>
+            <param name="pdfDocument">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            to be highlighted
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.Highlight(iText.Kernel.Pdf.PdfPage)">
+            <summary>
+            Highlight areas of interest in a given
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            </summary>
+            <param name="pdfPage">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            to be highlighted
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.TentativeCleanUp(iText.Kernel.Pdf.PdfDocument)">
+            <summary>
+            Perform tentative cleanup of areas of interest on a given
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            This method will add all redaction annotations to the given document, allowing
+            the end-user to choose which redactions to keep or delete.
+            </summary>
+            <param name="pdfDocument">the document to clean up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.TentativeCleanUp(iText.Kernel.Pdf.PdfPage)">
+            <summary>
+            Perform tentative cleanup of areas of interest on a given
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            This method will add all redaction annotations to the given page, allowing
+            the end-user to choose which redactions to keep or delete.
+            </summary>
+            <param name="pdfPage">the page to clean up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.GetPdfCleanUpLocations(iText.Kernel.Pdf.PdfPage)">
+            <summary>
+            Get all
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            objects from a given
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>.
+            </summary>
+            <param name="page">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            to be processed
+            </param>
+            <returns>
+            a List of
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            objects
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.PdfAutoSweepTools.GetPdfCleanUpLocations(iText.Kernel.Pdf.PdfDocument)">
+            <summary>
+            Get all
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            objects from a given
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>.
+            </summary>
+            <param name="doc">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            to be processed
+            </param>
+            <returns>
+            a List of
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            objects
+            </returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy">
+            <summary>This class represents a regular expression based cleanup strategy</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy.#ctor(System.String)">
+            <summary>Creates an object of regular expression based cleanup strategy.</summary>
+            <param name="regex">regular expression on which cleanup strategy will be based</param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy.#ctor(System.Text.RegularExpressions.Regex)">
+            <summary>Creates an object of regular expression based cleanup strategy.</summary>
+            <param name="pattern">
+            
+            <see cref="T:System.Text.RegularExpressions.Regex"/>
+            pattern on which cleanup strategy will be based
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy.GetRedactionColor(iText.Kernel.Pdf.Canvas.Parser.Listener.IPdfTextLocation)">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy.SetRedactionColor(iText.Kernel.Colors.Color)">
+            <summary>Sets the color in which redaction is to take place.</summary>
+            <param name="color">the color in which redaction is to take place</param>
+            <returns>
+            this
+            <see cref="T:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy">strategy</see>
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.Autosweep.RegexBasedCleanupStrategy.Reset">
+            <summary>
+            Returns an
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy"/>
+            object which is set to this regular pattern and redaction color.
+            </summary>
+            <returns>
+            a reset
+            <see cref="T:iText.PdfCleanup.Autosweep.ICleanupStrategy">cleanup strategy</see>
+            </returns>
+        </member>
+        <member name="T:iText.PdfCleanup.CleanUpProperties">
+            <summary>
+            Contains properties for
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            operations.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.#ctor">
+            <summary>Creates default CleanUpProperties instance.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.GetMetaInfo">
+            <summary>Returns metaInfo property.</summary>
+            <returns>metaInfo property</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.SetMetaInfo(iText.Commons.Actions.Contexts.IMetaInfo)">
+            <summary>Sets additional meta info.</summary>
+            <param name="metaInfo">the meta info to set</param>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.IsProcessAnnotations">
+            <summary>Check if page annotations will be processed.</summary>
+            <remarks>
+            Check if page annotations will be processed.
+            Default:
+            <see langword="true"/>.
+            </remarks>
+            <returns>
+            
+            <see langword="true"/>
+            if annotations will be processed by the
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.SetProcessAnnotations(System.Boolean)">
+            <summary>Set if page annotations will be processed.</summary>
+            <remarks>
+            Set if page annotations will be processed.
+            Default processing behaviour: remove annotation if there is overlap with a redaction region.
+            </remarks>
+            <param name="processAnnotations">is page annotations will be processed</param>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.GetOverlapRatio">
+            <summary>Gets the overlap ratio.</summary>
+            <remarks>
+            Gets the overlap ratio.
+            This is a value between 0 and 1 that indicates how much the content region should overlap with the redaction
+            area to be removed.
+            </remarks>
+            <returns>
+            the overlap ratio or
+            <see langword="null"/>
+            if it has not been set.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.CleanUpProperties.SetOverlapRatio(System.Nullable{System.Double})">
+            <summary>Sets the overlap ratio.</summary>
+            <remarks>
+            Sets the overlap ratio.
+            This is a value between 0 and 1 that indicates how much the content region should overlap with the
+            redaction area to be removed.
+            <para />
+            Example: if the overlap ratio is set to 0.3, the content region will be removed if it overlaps with
+            the redaction area by at least 30%.
+            </remarks>
+            <param name="overlapRatio">The overlap ratio to set.</param>
+        </member>
+        <member name="T:iText.PdfCleanup.Exceptions.CleanupExceptionMessageConstant">
+            <summary>Class that bundles all the error message templates as constants.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.FilteredImagesCache.Get(iText.PdfCleanup.FilteredImagesCache.FilteredImageKey)">
+            <summary>Retrieves saved result of image filtering based on given set of cleaning areas.</summary>
+            <remarks>
+            Retrieves saved result of image filtering based on given set of cleaning areas.
+            This won't handle the case when same filtering result is produced by different sets of areas,
+            e.g. if one set is { (0, 0, 50, 100), (50, 0, 50, 100)} and another one is {(0, 0, 100, 100)},
+            even though filtering results are essentially the same, current
+            <see cref="T:iText.PdfCleanup.FilteredImagesCache"/>
+            will treat this two cases as different filtering results.
+            </remarks>
+            <param name="imageKey">the defining filtering case</param>
+            <returns>
+            result of image filtering based on given set of cleaning areas if such was already processed and saved,
+            null otherwise.
+            </returns>
+        </member>
+        <member name="T:iText.PdfCleanup.LineDashPattern">
+            <summary>Represents the line dash pattern.</summary>
+            <remarks>
+            Represents the line dash pattern. The line dash pattern shall control the pattern
+            of dashes and gaps used to stroke paths. It shall be specified by a dash array and
+            a dash phase.
+            </remarks>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.#ctor(iText.Kernel.Pdf.PdfArray,System.Single)">
+            <summary>
+            Creates new
+            <see cref="T:iText.PdfCleanup.LineDashPattern"/>
+            object.
+            </summary>
+            <param name="dashArray">
+            The dash array. See
+            <see cref="M:iText.PdfCleanup.LineDashPattern.GetDashArray"/>
+            </param>
+            <param name="dashPhase">
+            The dash phase. See
+            <see cref="M:iText.PdfCleanup.LineDashPattern.GetDashPhase"/>
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.GetDashArray">
+            <summary>Getter for the dash array.</summary>
+            <remarks>
+            Getter for the dash array.
+            <para />
+            The dash array’s elements is number that specify the lengths of
+            alternating dashes and gaps; the numbers are nonnegative. The
+            elements are expressed in user space units.
+            </remarks>
+            <returns>The dash array.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.SetDashArray(iText.Kernel.Pdf.PdfArray)">
+            <summary>Setter for the dash array.</summary>
+            <remarks>
+            Setter for the dash array. See
+            <see cref="M:iText.PdfCleanup.LineDashPattern.GetDashArray"/>
+            </remarks>
+            <param name="dashArray">New dash array.</param>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.GetDashPhase">
+            <summary>Getter for the dash phase.</summary>
+            <remarks>
+            Getter for the dash phase.
+            <para />
+            The dash phase shall specify the distance into the dash pattern at which
+            to start the dash. The elements are expressed in user space units.
+            </remarks>
+            <returns>The dash phase.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.SetDashPhase(System.Single)">
+            <summary>Setter for the dash phase.</summary>
+            <remarks>
+            Setter for the dash phase. See
+            <see cref="M:iText.PdfCleanup.LineDashPattern.GetDashArray"/>
+            </remarks>
+            <param name="dashPhase">New dash phase.</param>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.Next">
+            <summary>Calculates and returns the next element which is either gap or dash.</summary>
+            <returns>The next dash array's element.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.Reset">
+            <summary>
+            Resets the dash array so that the
+            <see cref="M:iText.PdfCleanup.LineDashPattern.Next"/>
+            method will start
+            from the beginning of the dash array.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.IsSolid">
+            <summary>Checks whether the dashed pattern is solid or not.</summary>
+            <remarks>
+            Checks whether the dashed pattern is solid or not. It's solid when the
+            size of a dash array is even and sum of all the units off in the array
+            is 0.
+            For example: [3 0 4 0 5 0 6 0] (sum is 0), [3 0 4 0 5 1] (sum is 1).
+            </remarks>
+            <returns>is the dashed pattern solid or not</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.IsEven(System.Int32)">
+            <summary>Return whether or not a given number is even</summary>
+            <param name="num">input number</param>
+            <returns>true if the input number is even, false otherwise</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.LineDashPattern.DashArrayElem">
+            <summary>Class representing a single element of a dash array</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.DashArrayElem.#ctor(iText.PdfCleanup.LineDashPattern,System.Single,System.Boolean)">
+            <summary>Construct a new DashArrayElem object</summary>
+            <param name="val">the length of the dash array element</param>
+            <param name="isGap">whether this element indicates a gap, or a stroke</param>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.ApplyDashPattern(iText.Kernel.Geom.Path,iText.PdfCleanup.LineDashPattern)">
+            <summary>Apply a LineDashPattern along a Path</summary>
+            <param name="path">input path</param>
+            <param name="lineDashPattern">input LineDashPattern</param>
+            <returns>a dashed Path</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.ComponentwiseDiff(iText.Kernel.Geom.Point,iText.Kernel.Geom.Point)">
+            <summary>Returns the componentwise difference between two vectors</summary>
+            <param name="minuend">first vector</param>
+            <param name="subtrahend">second vector</param>
+            <returns>first vector .- second vector</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.GetUnitVector(iText.Kernel.Geom.Point)">
+            <summary>Construct a unit vector from a given vector</summary>
+            <param name="vector">input vector</param>
+            <returns>a vector of length 1, with the same orientation as the original vector</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.GetVectorEuclideanNorm(iText.Kernel.Geom.Point)">
+            <summary>Returns the Euclidean vector norm.</summary>
+            <remarks>
+            Returns the Euclidean vector norm.
+            This is the Euclidean distance between the tip of the vector and the origin.
+            </remarks>
+            <param name="vector">input vector</param>
+        </member>
+        <member name="M:iText.PdfCleanup.LineDashPattern.LiesOnSegment(iText.Kernel.Geom.Point,iText.Kernel.Geom.Point,iText.Kernel.Geom.Point)">
+            <summary>Returns whether a given point lies on a line-segment specified by start and end point</summary>
+            <param name="segStart">start of the line segment</param>
+            <param name="segEnd">end of the line segment</param>
+            <param name="point">query point</param>
+        </member>
+        <member name="T:iText.PdfCleanup.Logs.CleanUpLogMessageConstant">
+            <summary>Class that bundles all the log message templates as constants.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.Logs.CleanUpLogMessageConstant.CANNOT_OBTAIN_IMAGE_INFO_AFTER_FILTERING">
+            <summary>The Constant CANNOT_OBTAIN_IMAGE_INFO_AFTER_FILTERING.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.Logs.CleanUpLogMessageConstant.FAILED_TO_PROCESS_A_TRANSFORMATION_MATRIX">
+            <summary>The Constant FAILED_TO_PROCESS_A_TRANSFORMATION_MATRIX.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.Logs.CleanUpLogMessageConstant.IMAGE_MASK_CLEAN_UP_NOT_SUPPORTED">
+            <summary>The Constant IMAGE_MASK_CLEAN_UP_NOT_SUPPORTED.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.Logs.CleanUpLogMessageConstant.REDACTION_OF_ANNOTATION_TYPE_WATERMARK_IS_NOT_SUPPORTED">
+            <summary>The Constant REDACTION_OF_ANNOTATION_TYPE_WATERMARK_IS_NOT_SUPPORTED.</summary>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleaner">
+            <summary>Main entry point for cleaning a PDF document.</summary>
+            <remarks>
+            Main entry point for cleaning a PDF document.
+            This class contains a series of static methods that accept PDF file as a
+            <see cref="T:System.IO.Stream"/>
+            or already opened
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            and performs erasing of data in regions specified by input
+            arguments. The output can either be preserved in passed
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            with possibility to
+            post-process the document, or in an
+            <see cref="T:System.IO.Stream"/>
+            in a form of a complete PDF file.
+            <para />
+            The important difference between overloads with InputStream/OutputStream parameters and
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            parameter is in the consumption of product license limits.
+            </remarks>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUp(System.IO.Stream,System.IO.Stream,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>Cleans the document by erasing all the areas which are provided.</summary>
+            <remarks>
+            Cleans the document by erasing all the areas which are provided.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="cleanUpLocations">list of locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUp(System.IO.Stream,System.IO.Stream,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Cleans the document by erasing all the areas which are provided.</summary>
+            <remarks>
+            Cleans the document by erasing all the areas which are provided.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="cleanUpLocations">list of locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUp(iText.Kernel.Pdf.PdfDocument,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>Cleans the document by erasing all the areas which are provided.</summary>
+            <remarks>
+            Cleans the document by erasing all the areas which are provided.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="cleanUpLocations">list of locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUp(iText.Kernel.Pdf.PdfDocument,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Cleans the document by erasing all the areas which are provided.</summary>
+            <remarks>
+            Cleans the document by erasing all the areas which are provided.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="cleanUpLocations">list of locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(System.IO.Stream,System.IO.Stream,iText.PdfCleanup.Autosweep.ICleanupStrategy)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="strategy">cleanup strategy to be used</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(System.IO.Stream,System.IO.Stream,iText.PdfCleanup.Autosweep.ICleanupStrategy,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="additionalCleanUpLocations">list of additional locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(System.IO.Stream,System.IO.Stream,iText.PdfCleanup.Autosweep.ICleanupStrategy,iText.PdfCleanup.CleanUpProperties)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(System.IO.Stream,System.IO.Stream,iText.PdfCleanup.Autosweep.ICleanupStrategy,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="additionalCleanUpLocations">list of additional locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfDocument,iText.PdfCleanup.Autosweep.ICleanupStrategy)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="strategy">cleanup strategy to be used</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfDocument,iText.PdfCleanup.Autosweep.ICleanupStrategy,iText.PdfCleanup.CleanUpProperties)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfDocument,iText.PdfCleanup.Autosweep.ICleanupStrategy,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="additionalCleanUpLocations">list of additional locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfDocument,iText.PdfCleanup.Autosweep.ICleanupStrategy,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="additionalCleanUpLocations">list of additional locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfPage,iText.PdfCleanup.Autosweep.ICleanupStrategy)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfPage">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            to which cleaned up applies
+            </param>
+            <param name="strategy">cleanup strategy to be used</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfPage,iText.PdfCleanup.Autosweep.ICleanupStrategy,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfPage">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            to which cleaned up applies
+            </param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="additionalCleanUpLocations">list of additional locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfPage,iText.PdfCleanup.Autosweep.ICleanupStrategy,iText.PdfCleanup.CleanUpProperties)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfPage">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            to which cleaned up applies
+            </param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.AutoSweepCleanUp(iText.Kernel.Pdf.PdfPage,iText.PdfCleanup.Autosweep.ICleanupStrategy,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Perform cleanup of areas of interest based on a given cleanup strategy.</summary>
+            <remarks>
+            Perform cleanup of areas of interest based on a given cleanup strategy.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfPage">
+            the
+            <see cref="T:iText.Kernel.Pdf.PdfPage"/>
+            to which cleaned up applies
+            </param>
+            <param name="strategy">cleanup strategy to be used</param>
+            <param name="additionalCleanUpLocations">list of additional locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(System.IO.Stream,System.IO.Stream)">
+            <summary>Cleans the document by erasing regions defined by redact annotations inside the document.</summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations inside the document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(System.IO.Stream,System.IO.Stream,iText.PdfCleanup.CleanUpProperties)">
+            <summary>Cleans the document by erasing regions defined by redact annotations inside the document.</summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations inside the document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(iText.Kernel.Pdf.PdfDocument)">
+            <summary>Cleans the document by erasing regions defined by redact annotations inside the document.</summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations inside the document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(iText.Kernel.Pdf.PdfDocument,iText.PdfCleanup.CleanUpProperties)">
+            <summary>Cleans the document by erasing regions defined by redact annotations inside the document.</summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations inside the document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(System.IO.Stream,System.IO.Stream,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>
+            Cleans the document by erasing regions defined by redact annotations and additional cleanup locations inside the
+            document.
+            </summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations and additional cleanup locations inside the
+            document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="additionalCleanUpLocations">list of locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(iText.Kernel.Pdf.PdfDocument,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>
+            Cleans the document by erasing regions defined by redact annotations and additional cleanup locations inside the
+            document.
+            </summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations and additional cleanup locations inside the
+            document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="additionalCleanUpLocations">list of locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(System.IO.Stream,System.IO.Stream,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Cleans the document by erasing regions defined by redact annotations inside the document.</summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations inside the document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="inputPdf">the pdf document InputStream to which cleaned up applies</param>
+            <param name="outputPdf">the cleaned up pdf document OutputStream</param>
+            <param name="additionalCleanUpLocations">list of locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleaner.CleanUpRedactAnnotations(iText.Kernel.Pdf.PdfDocument,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>Cleans the document by erasing regions defined by redact annotations inside the document.</summary>
+            <remarks>
+            Cleans the document by erasing regions defined by redact annotations inside the document.
+            Note, use methods with InputStream/OutputStream params if you don't want to consume itext-core product license
+            limits.
+            </remarks>
+            <param name="pdfDocument">a document to which cleaned up applies</param>
+            <param name="additionalCleanUpLocations">list of locations to be cleaned up</param>
+            <param name="properties">additional properties for cleanUp</param>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleanUpEventListener">
+            <summary>An event listener which handles cleanup related events.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpEventListener.EventOccurred(iText.Kernel.Pdf.Canvas.Parser.Data.IEventData,iText.Kernel.Pdf.Canvas.Parser.EventType)">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpEventListener.GetEncounteredText">
+            <summary>Get the last encountered TextRenderInfo objects, then clears the internal buffer</summary>
+            <returns>the TextRenderInfo objects that were encountered when processing the last text rendering operation
+                </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpEventListener.GetEncounteredImage">
+            <summary>Get the last encountered ImageRenderInfo, then clears the internal buffer</summary>
+            <returns>the ImageRenderInfo object that was encountered when processing the last image rendering operation
+                </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpEventListener.GetEncounteredPath">
+            <summary>Get the last encountered PathRenderInfo, then clears the internal buffer</summary>
+            <returns>the PathRenderInfo object that was encountered when processing the last path rendering operation</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpEventListener.GetSupportedEvents">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.CheckIfRectanglesIntersect(iText.Kernel.Geom.Point[],iText.Kernel.Geom.Point[])">
+            <summary>Return true if two given rectangles (specified by an array of points) intersect.</summary>
+            <param name="rect1">
+            the first rectangle, considered as a subject of intersection. Even if it's width is zero,
+            it still can be intersected by second rectangle.
+            </param>
+            <param name="rect2">
+            the second rectangle, considered as intersecting rectangle. If it has zero width rectangles
+            are never considered as intersecting.
+            </param>
+            <returns>true if the rectangles intersect, false otherwise</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterText(iText.Kernel.Pdf.Canvas.Parser.Data.TextRenderInfo)">
+            <summary>Filter a TextRenderInfo object.</summary>
+            <param name="text">the TextRenderInfo to be filtered</param>
+            <returns>
+            a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpFilter.FilterResult`1"/>
+            object with filtered text.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterImage(iText.Kernel.Pdf.Canvas.Parser.Data.ImageRenderInfo)">
+            <summary>Filter an ImageRenderInfo object.</summary>
+            <param name="image">the ImageRenderInfo object to be filtered</param>
+            <returns>
+            an
+            <see cref="T:iText.PdfCleanup.PdfCleanUpFilter.FilterResult`1"/>
+            object with filtered image data.filterStrokePath
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterStrokePath(iText.Kernel.Pdf.Canvas.Parser.Data.PathRenderInfo)">
+            <summary>Filter a PathRenderInfo object.</summary>
+            <param name="path">the PathRenderInfo object to be filtered</param>
+            <returns>
+            a filtered
+            <see cref="T:iText.Kernel.Geom.Path"/>
+            object.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterFillPath(iText.Kernel.Pdf.Canvas.Parser.Data.PathRenderInfo,System.Int32)">
+            <summary>Filter a PathRenderInfo object.</summary>
+            <param name="path">the PathRenderInfo object to be filtered</param>
+            <param name="fillingRule">
+            an integer parameter, specifying whether the subpath is contour.
+            If the subpath is contour, pass any value.
+            </param>
+            <returns>
+            a filtered
+            <see cref="T:iText.Kernel.Geom.Path"/>
+            object.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterFillPath(iText.Kernel.Geom.Path,iText.Kernel.Geom.Matrix,System.Int32)">
+            <summary>Note: this method will close all unclosed subpaths of the passed path.</summary>
+            <param name="path">the PathRenderInfo object to be filtered.</param>
+            <param name="ctm">
+            a
+            <see cref="T:iText.Kernel.Geom.Path"/>
+            transformation matrix.
+            </param>
+            <param name="fillingRule">If the subpath is contour, pass any value.</param>
+            <returns>
+            a filtered
+            <see cref="T:iText.Kernel.Geom.Path"/>
+            object.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.GetImageAreasToBeCleaned(iText.Kernel.Geom.Matrix)">
+            <summary>Calculates intersection of the image and the render filter region in the coordinate system relative to the image.
+                </summary>
+            <returns>
+            
+            <see langword="null"/>
+            if the image is fully covered and therefore is completely cleaned,
+            <see cref="!:System.Collections.IList&lt;E&gt;"/>
+            of
+            <see cref="T:iText.Kernel.Geom.Rectangle"/>
+            objects otherwise.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.IsTextNotToBeCleaned(iText.Kernel.Pdf.Canvas.Parser.Data.TextRenderInfo)">
+            <summary>Returns whether the given TextRenderInfo object needs to be cleaned up.</summary>
+            <param name="renderInfo">the input TextRenderInfo object</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.CheckIfIntersectionRectangleDegenerate(iText.Kernel.Pdf.Canvas.Parser.ClipperLib.IntRect,System.Boolean)">
+            <summary>Checks if the input intersection rectangle is degenerate.</summary>
+            <remarks>
+            Checks if the input intersection rectangle is degenerate.
+            In case of intersection subject is degenerate (isIntersectSubjectDegenerate
+            is true) and it is included into intersecting rectangle, this method returns false,
+            despite of the intersection rectangle is degenerate.
+            </remarks>
+            <param name="rect">intersection rectangle</param>
+            <param name="isIntersectSubjectDegenerate">
+            value, specifying if the intersection subject
+            is degenerate.
+            </param>
+            <returns>true - if the intersection rectangle is degenerate.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.CalcImageRect(iText.Kernel.Geom.Matrix)">
+            <returns>Image boundary rectangle in device space.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.TransformRectIntoImageCoordinates(iText.Kernel.Geom.Rectangle,iText.Kernel.Geom.Matrix)">
+            <summary>Transforms the given Rectangle into the image coordinate system which is [0,1]x[0,1] by default.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.ProcessImageDirectly(iText.Kernel.Pdf.Xobject.PdfImageXObject,System.Collections.Generic.IList{iText.Kernel.Geom.Rectangle})">
+            <summary>Filters image content using direct manipulation over PDF image samples stream.</summary>
+            <remarks>
+            Filters image content using direct manipulation over PDF image samples stream. Implemented according to ISO 32000-2,
+            "8.9.3 Sample representation".
+            </remarks>
+            <param name="image">image XObject which will be filtered</param>
+            <param name="imageAreasToBeCleaned">list of rectangle areas for clean up with coordinates in (0,1)x(0,1) space
+                </param>
+            <returns>raw bytes of the PDF image samples stream which is already cleaned.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.ConvertToCircles(System.Collections.Generic.IList{iText.Kernel.Geom.Subpath},System.Double)">
+            <summary>Converts specified degenerate subpaths to circles.</summary>
+            <remarks>
+            Converts specified degenerate subpaths to circles.
+            Note: actually the resultant subpaths are not real circles but approximated.
+            </remarks>
+            <param name="radius">Radius of each constructed circle.</param>
+            <returns>
+            
+            <see cref="!:System.Collections.IList&lt;E&gt;"/>
+            consisting of circles constructed on given degenerated subpaths.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.ConvertToSquares(System.Collections.Generic.IList{iText.Kernel.Geom.Subpath},System.Double,iText.Kernel.Geom.Path)">
+            <summary>Converts specified degenerate subpaths to squares.</summary>
+            <remarks>
+            Converts specified degenerate subpaths to squares.
+            Note: the list of degenerate subpaths should contain at least 2 elements. Otherwise
+            we can't determine the direction which the rotation of each square depends on.
+            </remarks>
+            <param name="squareWidth">Width of each constructed square.</param>
+            <param name="sourcePath">The path which dash pattern applied to. Needed to calc rotation angle of each square.
+                </param>
+            <returns>
+            
+            <see cref="!:System.Collections.IList&lt;E&gt;"/>
+            consisting of squares constructed on given degenerated subpaths.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.GetPathApproximation(iText.Kernel.Geom.Path)">
+            <summary>Approximates a given Path with a List of Point objects.</summary>
+            <param name="path">input path</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.ApproximateCircle(iText.Kernel.Geom.Point,System.Double)">
+            <summary>Approximate a circle with 4 Bezier curves (one for each 90 degrees sector).</summary>
+            <param name="center">center of the circle</param>
+            <param name="radius">radius of the circle</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.GetTextRectangle(iText.Kernel.Pdf.Canvas.Parser.Data.TextRenderInfo)">
+            <summary>Get the bounding box of a TextRenderInfo object.</summary>
+            <param name="renderInfo">input TextRenderInfo object</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.GetRectangleVertices(iText.Kernel.Geom.Rectangle)">
+            <summary>Convert a Rectangle object into 4 Points</summary>
+            <param name="rect">input Rectangle</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.GetRectanglesIntersection(iText.Kernel.Geom.Rectangle,iText.Kernel.Geom.Rectangle)">
+            <summary>Calculate the intersection of 2 Rectangles.</summary>
+            <param name="rect1">first Rectangle</param>
+            <param name="rect2">second Rectangle</param>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleanUpFilter.FilterResult`1">
+            <summary>Generic class representing the result of filtering an object of type T.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterResult`1.IsModified">
+            <summary>Get whether the object was modified or not.</summary>
+            <returns>true if the object was modified, false otherwise</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpFilter.FilterResult`1.GetFilterResult">
+            <summary>Get the result after filtering</summary>
+            <returns>the result of filtering an object of type T.</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleanUpLocation">
+            <summary>Defines the region to be erased in a PDF document.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpLocation.#ctor(System.Int32,iText.Kernel.Geom.Rectangle)">
+            <summary>
+            Constructs a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            object.
+            </summary>
+            <param name="page">specifies the number of the page which the region belongs to.</param>
+            <param name="region">represents the boundaries of the area to be erased.</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpLocation.#ctor(System.Int32,iText.Kernel.Geom.Rectangle,iText.Kernel.Colors.Color)">
+            <summary>
+            Constructs a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            object.
+            </summary>
+            <param name="page">specifies the number of the page which the region belongs to.</param>
+            <param name="region">represents the boundaries of the area to be erased.</param>
+            <param name="cleanUpColor">
+            a color used to fill the area after erasing it. If
+            <see langword="null"/>
+            the erased area left uncolored.
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpLocation.GetPage">
+            <returns>the number of the page which the region belongs to.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpLocation.GetRegion">
+            <returns>
+            A
+            <see cref="T:iText.Kernel.Geom.Rectangle"/>
+            representing the boundaries of the area to be erased.
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpLocation.GetCleanUpColor">
+            <summary>Returns a color used to fill the area after erasing it.</summary>
+            <remarks>
+            Returns a color used to fill the area after erasing it. If
+            <see langword="null"/>
+            the erased area left uncolored.
+            </remarks>
+            <returns>a color used to fill the area after erasing it.</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleanUpProcessor">
+            <summary>PDF content stream processor, which filters content to be cleaned up.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.PdfCleanUpProcessor.notAppliedGsParams">
+            <summary>
+            In
+            <c>notAppliedGsParams</c>
+            field not written graphics state params are stored.
+            </summary>
+            <remarks>
+            In
+            <c>notAppliedGsParams</c>
+            field not written graphics state params are stored.
+            Stack represents gs params on different levels of the q/Q nesting (see
+            <see cref="T:iText.PdfCleanup.PdfCleanUpProcessor.NotAppliedGsParams"/>
+            ).
+            On "q" operator new
+            <c>NotAppliedGsParams</c>
+            is pushed to the stack and on "Q" it is popped.
+            <para />
+            When operators are applied, they are written from the outer to inner nesting level, separated by "q".
+            After being written the stack is cleared.
+            <para />
+            Graphics state parameters are applied in two ways:
+            <list type="bullet">
+            <item><description>
+            first - right before writing text content, text state in current gs is compare to the text state of the text
+            render info gs and difference is applied to current gs;
+            </description></item>
+            <item><description>
+            second - through list of the not applied gs params. Right before writing some content, this list is checked,
+            and if something affecting content is stored in this list it will be applied.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.ProcessPageAnnotations(iText.Kernel.Pdf.PdfPage,System.Collections.Generic.IList{iText.Kernel.Geom.Rectangle},System.Boolean)">
+            <summary>Process the annotations of a page.</summary>
+            <remarks>
+            Process the annotations of a page.
+            Default process behaviour is to remove the annotation if there is (partial) overlap with a redaction region
+            </remarks>
+            <param name="page">the page to process</param>
+            <param name="regions">a list of redaction regions</param>
+            <param name="redactRedactAnnotations">true if annotation with subtype /Redact should also be removed</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.ProcessContent(System.Byte[],iText.Kernel.Pdf.PdfResources)">
+            <param name="contentBytes">the bytes of a content stream</param>
+            <param name="resources">the resources of the content stream. Must not be null.</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.GetCanvas">
+            <summary>Returns the last canvas without removing it.</summary>
+            <returns>the last canvas in canvasStack.</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.AddNotWrittenTag(iText.Kernel.Pdf.Canvas.CanvasTag)">
+            <summary>Adds tag to the deque of not written tags.</summary>
+            <param name="tag">tag to be added.</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.OpenNotWrittenTags">
+            <summary>Opens all tags from deque of not written tags.</summary>
+            <remarks>Opens all tags from deque of not written tags. Should be called before some content is drawn.</remarks>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.QuadPointsForLinkAnnotationAreValid(iText.Kernel.Geom.Rectangle,iText.Kernel.Pdf.PdfArray)">
+            <summary>
+            For a link annotation, a quadpoints array can be specified
+            but it will be ignored in favour of the rectangle
+            if one of the points is located outside the rectangle's boundaries
+            </summary>
+            <param name="rect">rectangle entry of the link annotation</param>
+            <param name="quadPoints">
+            An array of 8 × n numbers specifying the coordinates of n quadrilaterals
+            in default user space that comprise the region in which the link should be activated.
+            </param>
+            <returns>true if the quad points are valid, false if the quadpoint array should be used</returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpProcessor.PollNotAppliedCtm">
+            <summary>To add images and formXObjects to canvas we pass ctm.</summary>
+            <remarks>
+            To add images and formXObjects to canvas we pass ctm. Here we try to find last not applied ctm in order to pass it to
+            PdfCanvas method later. Returned ctm is written right before the image, that's why we care only for not applied ctms of
+            the current (the "deepest") q/Q nesting level.
+            If such ctm wasn't found identity ctm is returned.
+            </remarks>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleanUpProcessor.NotAppliedGsParams">
+            <summary>Single instance of this class represents not applied graphics state params of the single q/Q nesting level.
+                </summary>
+            <remarks>
+            Single instance of this class represents not applied graphics state params of the single q/Q nesting level.
+            For example:
+            <para />
+            0 g
+            1 0 0 1 25 50 cm
+            <para />
+            q
+            <para />
+            5 w
+            /Gs1 gs
+            13 g
+            <para />
+            Q
+            <para />
+            1 0 0 RG
+            <para />
+            Operators "0 g", "1 0 0 1 25 50 cm" and "1 0 0 RG" belong to the outer q/Q nesting level;
+            Operators "5 w", "/Gs1 gs", "13 g" belong to the inner q/Q nesting level.
+            Operators of every level of the q/Q nesting are stored in different instances of this class.
+            </remarks>
+        </member>
+        <member name="T:iText.PdfCleanup.PdfCleanUpTool">
+            <summary>Represents the main mechanism for cleaning a PDF document.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.PdfCleanUpTool.floatMultiplier">
+            <summary>
+            When a document with line arts is being cleaned up, there are a lot of
+            calculations with floating point numbers.
+            </summary>
+            <remarks>
+            When a document with line arts is being cleaned up, there are a lot of
+            calculations with floating point numbers. All of them are translated
+            into fixed point numbers by multiplying by this coefficient. Vary it
+            to adjust the preciseness of the calculations.
+            </remarks>
+        </member>
+        <member name="F:iText.PdfCleanup.PdfCleanUpTool.arcTolerance">
+            <summary>
+            Used as the criterion of a good approximation of rounded line joins
+            and line caps.
+            </summary>
+        </member>
+        <member name="F:iText.PdfCleanup.PdfCleanUpTool.pdfCleanUpLocations">
+            <summary>Key - page number, value - list of locations related to the page.</summary>
+        </member>
+        <member name="F:iText.PdfCleanup.PdfCleanUpTool.redactAnnotations">
+            <summary>
+            Keys - redact annotations to be removed from the document after clean up,
+            values - list of regions defined by redact annotation.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.#ctor(iText.Kernel.Pdf.PdfDocument)">
+            <summary>
+            Creates a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            object.
+            </summary>
+            <remarks>
+            Creates a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            object. No regions for erasing are specified.
+            Use
+            <see cref="M:iText.PdfCleanup.PdfCleanUpTool.AddCleanupLocation(iText.PdfCleanup.PdfCleanUpLocation)"/>
+            method
+            to set regions to be erased from the document.
+            </remarks>
+            <param name="pdfDocument">
+            A
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            object representing the document to which redaction applies.
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.#ctor(iText.Kernel.Pdf.PdfDocument,System.Boolean,iText.PdfCleanup.CleanUpProperties)">
+            <summary>
+            Creates a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            object.
+            </summary>
+            <remarks>
+            Creates a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            object. If
+            <paramref name="cleanRedactAnnotations"/>
+            is true,
+            regions to be erased are extracted from the redact annotations contained inside the given document.
+            Those redact annotations will be removed from the resultant document. If
+            <paramref name="cleanRedactAnnotations"/>
+            is false,
+            then no regions for erasing are specified. In that case use
+            <see cref="M:iText.PdfCleanup.PdfCleanUpTool.AddCleanupLocation(iText.PdfCleanup.PdfCleanUpLocation)"/>
+            method to set regions to be erased from the document.
+            </remarks>
+            <param name="pdfDocument">
+            A
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            object representing the document to which redaction applies.
+            </param>
+            <param name="cleanRedactAnnotations">if true - regions to be erased are extracted from the redact annotations contained
+                </param>
+            <param name="properties">
+            additional properties for clean-up process
+            inside the given document.
+            </param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.#ctor(iText.Kernel.Pdf.PdfDocument,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation},iText.PdfCleanup.CleanUpProperties)">
+            <summary>
+            Creates a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            object based on the given
+            <see cref="!:System.Collections.IList&lt;E&gt;"/>
+            of
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            s representing regions to be erased from the document.
+            </summary>
+            <param name="cleanUpLocations">
+            list of locations to be cleaned up
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            </param>
+            <param name="pdfDocument">
+            a
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            object representing the document to which redaction applies.
+            </param>
+            <param name="properties">additional properties for clean-up process</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.AddCleanupLocation(iText.PdfCleanup.PdfCleanUpLocation)">
+            <summary>
+            Adds a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            to be cleaned up.
+            </summary>
+            <param name="cleanUpLocation">
+            a
+            <see cref="T:iText.PdfCleanup.PdfCleanUpLocation"/>
+            to be cleaned up
+            </param>
+            <returns>
+            this
+            <see cref="T:iText.PdfCleanup.PdfCleanUpTool"/>
+            </returns>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.CleanUp">
+            <summary>Cleans the document by erasing all the areas which are provided or extracted from redaction annotations.
+                </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.CleanUpPage(System.Int32,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>
+            Cleans a page from the document by erasing all the areas which
+            are provided or extracted from redaction annotations.
+            </summary>
+            <param name="pageNumber">the page to be cleaned up</param>
+            <param name="cleanUpLocations">the locations to be cleaned up</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.ColorCleanedLocations(iText.Kernel.Pdf.Canvas.PdfCanvas,System.Collections.Generic.IList{iText.PdfCleanup.PdfCleanUpLocation})">
+            <summary>Draws colored rectangles on the PdfCanvas corresponding to the PdfCleanUpLocation objects.</summary>
+            <param name="canvas">the PdfCanvas on which to draw</param>
+            <param name="cleanUpLocations">the PdfCleanUpLocations</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.AddColoredRectangle(iText.Kernel.Pdf.Canvas.PdfCanvas,iText.PdfCleanup.PdfCleanUpLocation)">
+            <summary>Draws a colored rectangle on the PdfCanvas correponding to a PdfCleanUpLocation.</summary>
+            <param name="canvas">the PdfCanvas on which to draw</param>
+            <param name="location">the PdfCleanUpLocation</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.AddCleanUpLocationsBasedOnRedactAnnotations">
+            <summary>
+            Adds clean up locations to be erased by extracting regions from the redact annotations
+            contained inside the given document.
+            </summary>
+            <remarks>
+            Adds clean up locations to be erased by extracting regions from the redact annotations
+            contained inside the given document. Those redact annotations will be removed from the resultant document.
+            </remarks>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.ExtractLocationsFromSingleRedactAnnotation(iText.Kernel.Pdf.Annot.PdfRedactAnnotation)">
+            <summary>
+            Note: annotation can consist not only of one area specified by the RECT entry, but also of multiple areas specified
+            by the QuadPoints entry in the annotation dictionary.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.TranslateQuadPointsToRectangles(iText.Kernel.Pdf.PdfArray)">
+            <summary>Convert a PdfArray of floats into a List of Rectangle objects.</summary>
+            <param name="quadPoints">input PdfArray</param>
+        </member>
+        <member name="M:iText.PdfCleanup.PdfCleanUpTool.RemoveRedactAnnots">
+            <summary>Remove the redaction annotations.</summary>
+            <remarks>
+            Remove the redaction annotations.
+            This method is called after the annotations are processed.
+            </remarks>
+        </member>
+        <member name="F:iText.PdfCleanup.TextPositioning.firstPositioningOperands">
+            <summary>
+            Not null only when first pos operator encountered; when concatenation of operators is performed
+            this field is cleaned and positioning info is stored in either tdShift or tmShift fields.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.TextPositioning.GetCurrLeading">
+            <summary>Get the current leading</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.TextPositioning.Clear">
+            <summary>is performed when text object is ended or text chunk is written</summary>
+        </member>
+        <member name="T:iText.PdfCleanup.Util.CleanUpCsCompareUtil">
+            <summary>
+            Utility class providing methods to check images compatibility.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Util.CleanUpCsCompareUtil.IsOriginalCsCompatible(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Kernel.Pdf.Xobject.PdfImageXObject)">
+            <summary>
+            Check whether the image info of the passed original image and the image info of the cleared
+            image are the same.
+            </summary>
+            <param name="originalImage"><see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/> of the original image</param>
+            <param name="clearedImage"><see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/> of the cleared image</param>
+            <returns>true if the image infos are the same</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Util.CleanUpHelperUtil">
+            <summary>Utility class providing clean up helping methods.</summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Util.CleanUpHelperUtil.GetImageRectToClean(iText.Kernel.Geom.Rectangle,System.Int32,System.Int32)">
+            <summary>
+            Calculates the coordinates of the image rectangle to clean by the passed
+            <see cref="T:iText.Kernel.Geom.Rectangle"/>
+            ,
+            specifying the area to clean.
+            </summary>
+            <param name="rect">
+            the
+            <see cref="T:iText.Kernel.Geom.Rectangle"/>
+            specifying the area to clean.
+            </param>
+            <param name="imgWidth">width of the image to clean</param>
+            <param name="imgHeight">height of the image to clean</param>
+            <returns>an array of the resultant rectangle coordinates</returns>
+        </member>
+        <member name="T:iText.PdfCleanup.Util.CleanUpImageUtil">
+            <summary>
+            Utility class providing methods to handle images and work with graphics.
+            </summary>
+        </member>
+        <member name="M:iText.PdfCleanup.Util.CleanUpImageUtil.CleanUpImage(System.Byte[],System.Collections.Generic.IList{iText.Kernel.Geom.Rectangle})">
+            <summary>Clean up an image using a List of Rectangles that need to be redacted</summary>
+            <param name="imageBytes">the image to be cleaned up</param>
+            <param name="areasToBeCleaned">the List of Rectangles that need to be redacted out of the image</param>
+        </member>
+        <member name="M:iText.PdfCleanup.Util.CleanUpImageUtil.CleanImage(System.Drawing.Image,System.Collections.Generic.IList{iText.Kernel.Geom.Rectangle},System.Drawing.Color)">
+            <summary>Clean up a BufferedImage using a List of Rectangles that need to be redacted</summary>
+            <param name="image">the image to be cleaned up</param>
+            <param name="areasToBeCleaned">the List of Rectangles that need to be redacted out of the image</param>
+        </member>
+    </members>
+</doc>
