@@ -1,6 +1,7 @@
 ﻿<h1 align="left">Presstank</h1>
  <p align="left">
    <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
+     <img src="https://img.shields.io/github/stars/iamjuaness/Presstank?color=orange"
  </p>
 
  <h1 align="left">
@@ -97,3 +98,9 @@ El proyecto consiste en el desarrollo de un sistema de préstamos de dinero para
 | [<img src="https://avatars.githubusercontent.com/u/104481229?v=4" width=115><br><sub>Juan E. Cardona</sub>](https://github.com/iamjuaness)
 | :---: |
 
+
+## Contributors
+
+<a href="https://github.com/iamjuaness/Mi-Boleta/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=iamjuaness/Presstank" />
+</a>
