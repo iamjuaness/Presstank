@@ -1,7 +1,10 @@
 ﻿<h1 align="left">Presstank</h1>
  <p align="left">
    <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
-     <img src="https://img.shields.io/github/stars/iamjuaness/Presstank?color=orange"
+   <img src="https://img.shields.io/github/stars/iamjuaness/Presstank?color=orange">
+	  <img src="https://img.shields.io/github/last-commit/iamjuaness/Presstank?style=default&logo=git&logoColor=white&color=orange" alt="last-commit">
+  	<img src="https://img.shields.io/github/languages/top/iamjuaness/Presstank?style=default&color=orange" alt="repo-top-language">
+	  <img src="https://img.shields.io/github/languages/count/iamjuaness/Presstank?style=default&color=orange" alt="repo-language-count">
  </p>
 
  <h1 align="left">
