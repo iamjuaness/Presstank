@@ -33,14 +33,17 @@
             this.requestLoan = new FontAwesome.Sharp.IconMenuItem();
             this.payLoanInstallment = new FontAwesome.Sharp.IconMenuItem();
             this.reports_consults = new FontAwesome.Sharp.IconMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utils = new FontAwesome.Sharp.IconMenuItem();
+            this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.help = new FontAwesome.Sharp.IconMenuItem();
             this.menuTitle = new System.Windows.Forms.MenuStrip();
             this.title = new System.Windows.Forms.Label();
             this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +115,13 @@
             this.reports_consults.Text = "Reportes y Consultas";
             this.reports_consults.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
+            // 
             // utils
             // 
             this.utils.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
@@ -123,6 +133,27 @@
             this.utils.Size = new System.Drawing.Size(106, 79);
             this.utils.Text = "Utilidades";
             this.utils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+
+            // Opción Calculadora en Utilidades
+            this.calculadoraToolStripMenuItem.Text = "Calculadora";
+            this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.btnCalculadora_Click);
+
+            // Opción Calendario en Utilidades
+            this.calendarioToolStripMenuItem.Text = "Calendario";
+            this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.btnCalendario_Click);
+
+            // 
+            // Add items to Utils dropdown
+            // 
+            this.utils.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.calculadoraToolStripMenuItem,
+                this.calendarioToolStripMenuItem });
+
+            // Configuración del control MonthCalendar
+            this.monthCalendar.Location = new System.Drawing.Point(100, 100); // Ajusta la posición dentro del panel
+            this.monthCalendar.Visible = false; // Oculto inicialmente
+            this.container.Controls.Add(this.monthCalendar);
+
             // 
             // help
             // 
@@ -193,13 +224,6 @@
             this.txtNameUser.TabIndex = 5;
             this.txtNameUser.Text = "user";
             // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -238,6 +262,9 @@
         private System.Windows.Forms.Label txtUsuario;
         private System.Windows.Forms.Label txtNameUser;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calendarioToolStripMenuItem;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
     }
 }
 

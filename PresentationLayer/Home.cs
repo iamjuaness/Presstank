@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -132,5 +133,32 @@ namespace PresentationLayer
             reportsAndQueries.ShowDialog();
             
         }
+
+        // Método para abrir la Calculadora
+        private void btnCalculadora_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("calc.exe");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir la Calculadora. " + ex.Message);
+            }
+        }
+
+        // Método para abrir el Calendario
+        private void btnCalendario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.monthCalendar.Visible = !this.monthCalendar.Visible;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el Calendario. " + ex.Message);
+            }
+        }
+
     }
 }
