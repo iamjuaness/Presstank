@@ -26,6 +26,7 @@ namespace PresentationLayer
             usuarioAct = objUsuario;
             infoUsuario = objEmpleado;
             InitializeComponent();
+            ConfigureMenuForUserLevel();
             this.IsMdiContainer = true;
         }
 
@@ -39,22 +40,28 @@ namespace PresentationLayer
         /// </summary>
         private void ConfigureMenuForUserLevel()
         {
-            var nivel = bL_Nivel.GetNivelByID(usuarioAct.ID_Nivel);
-            switch (nivel.Nivel)
+            Nivel_Usuario nivel = bL_Nivel.GetNivelByID(usuarioAct.ID_Nivel);
+
+            if (nivel != null)
             {
-                case "Administrador(admin)":
-                    EnableAdminOptions();
-                    break;
-                case "Paramétrico(tesoreria)":
-                    EnableParametricOptions();
-                    break;
-                case "Esporádico(empleado)":
-                    EnableSporadicOptions();
-                    break;
-                default:
-                    MessageBox.Show("Nivel de usuario no reconocido.");
-                    break;
+                switch (nivel.Nivel)
+                {
+                    case "Administrador(admin)":
+                        EnableAdminOptions();
+                        break;
+                    case "Paramétricos(tesoreria)":
+                        EnableParametricOptions();
+                        break;
+                    case "Esporádicos(empleado)":
+                        EnableSporadicOptions();
+                        break;
+                    default:
+                        MessageBox.Show("Nivel de usuario no reconocido.");
+                        break;
+                }
             }
+
+
         }
 
         /// <summary>
@@ -81,7 +88,7 @@ namespace PresentationLayer
             requestLoan.Enabled = true;
             payLoanInstallment.Enabled = true;
             reports_consults.Enabled = true;
-            utils.Enabled = false; // Parametric users can't access the utilities
+            utils.Enabled = true;
             help.Enabled = true;
         }
 
@@ -93,9 +100,9 @@ namespace PresentationLayer
             // Only request loan and help options for sporadic users
             transactions.Enabled = true;
             requestLoan.Enabled = true;
-            payLoanInstallment.Enabled = false;
-            reports_consults.Enabled = false;
-            utils.Enabled = false;
+            payLoanInstallment.Enabled = true;
+            reports_consults.Enabled = true;
+            utils.Enabled = true;
             help.Enabled = true;
         }
 

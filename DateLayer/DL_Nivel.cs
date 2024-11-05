@@ -52,7 +52,7 @@ namespace DateLayer
             {
                 try
                 {
-                    string query = "SELECT Nivel FROM Nivel_Usuario WHERE ID_Nivel == @ID_Nivel";
+                    string query = "SELECT Nivel FROM Nivel_Usuario WHERE ID_Nivel = @ID_Nivel";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.CommandType = CommandType.Text;
