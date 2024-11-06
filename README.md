@@ -104,6 +104,6 @@ El proyecto consiste en el desarrollo de un sistema de préstamos de dinero para
 
 ## Contributors
 
-<a href="https://github.com/iamjuaness/Mi-Boleta/graphs/contributors">
+<a href="https://github.com/iamjuaness/Presstank/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=iamjuaness/Presstank" />
 </a>
