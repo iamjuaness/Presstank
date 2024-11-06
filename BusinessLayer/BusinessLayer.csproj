@@ -44,6 +44,7 @@
     <Compile Include="BL_Cargo.cs" />
     <Compile Include="BL_Empleado.cs" />
     <Compile Include="BL_Nivel.cs" />
+    <Compile Include="BL_Solicitud.cs" />
     <Compile Include="BL_Sucursal.cs" />
     <Compile Include="BL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

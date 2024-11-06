@@ -166,6 +166,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MisSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MisSolicitudes.Designer.cs">
+      <DependentUpon>MisSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="PayLoanInstallmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,12 @@
     </Compile>
     <Compile Include="RequestLoanForm.Designer.cs">
       <DependentUpon>RequestLoanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solicitudes.Designer.cs">
+      <DependentUpon>Solicitudes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -221,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestLoanForm.resx">
       <DependentUpon>RequestLoanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solicitudes.resx">
+      <DependentUpon>Solicitudes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

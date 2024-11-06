@@ -37,14 +37,17 @@
             this.utils = new FontAwesome.Sharp.IconMenuItem();
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.help = new FontAwesome.Sharp.IconMenuItem();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.menuTitle = new System.Windows.Forms.MenuStrip();
             this.title = new System.Windows.Forms.Label();
             this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
+            this.misSolicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
+            this.container.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -104,7 +107,9 @@
             // reports_consults
             // 
             this.reports_consults.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.misSolicitudesToolStripMenuItem,
+            this.solicitudesToolStripMenuItem});
             this.reports_consults.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
             this.reports_consults.IconColor = System.Drawing.Color.Black;
             this.reports_consults.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -124,6 +129,9 @@
             // 
             // utils
             // 
+            this.utils.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calculadoraToolStripMenuItem,
+            this.calendarioToolStripMenuItem});
             this.utils.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
             this.utils.IconColor = System.Drawing.Color.Black;
             this.utils.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -133,27 +141,20 @@
             this.utils.Size = new System.Drawing.Size(106, 79);
             this.utils.Text = "Utilidades";
             this.utils.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-
-            // Opción Calculadora en Utilidades
+            // 
+            // calculadoraToolStripMenuItem
+            // 
+            this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.btnCalculadora_Click);
-
-            // Opción Calendario en Utilidades
+            // 
+            // calendarioToolStripMenuItem
+            // 
+            this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.calendarioToolStripMenuItem.Text = "Calendario";
             this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.btnCalendario_Click);
-
-            // 
-            // Add items to Utils dropdown
-            // 
-            this.utils.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.calculadoraToolStripMenuItem,
-                this.calendarioToolStripMenuItem });
-
-            // Configuración del control MonthCalendar
-            this.monthCalendar.Location = new System.Drawing.Point(100, 100); // Ajusta la posición dentro del panel
-            this.monthCalendar.Visible = false; // Oculto inicialmente
-            this.container.Controls.Add(this.monthCalendar);
-
             // 
             // help
             // 
@@ -166,6 +167,13 @@
             this.help.Size = new System.Drawing.Size(79, 79);
             this.help.Text = "Ayuda";
             this.help.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // monthCalendar
+            // 
+            this.monthCalendar.Location = new System.Drawing.Point(100, 100);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 0;
+            this.monthCalendar.Visible = false;
             // 
             // menuTitle
             // 
@@ -194,6 +202,7 @@
             // 
             // container
             // 
+            this.container.Controls.Add(this.monthCalendar);
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.container.Location = new System.Drawing.Point(0, 155);
             this.container.Name = "container";
@@ -206,7 +215,7 @@
             this.txtUsuario.BackColor = System.Drawing.Color.SteelBlue;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtUsuario.Location = new System.Drawing.Point(692, 18);
+            this.txtUsuario.Location = new System.Drawing.Point(779, 18);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(102, 29);
             this.txtUsuario.TabIndex = 4;
@@ -218,11 +227,25 @@
             this.txtNameUser.BackColor = System.Drawing.Color.SteelBlue;
             this.txtNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameUser.ForeColor = System.Drawing.Color.White;
-            this.txtNameUser.Location = new System.Drawing.Point(800, 18);
+            this.txtNameUser.Location = new System.Drawing.Point(887, 18);
             this.txtNameUser.Name = "txtNameUser";
             this.txtNameUser.Size = new System.Drawing.Size(60, 29);
             this.txtNameUser.TabIndex = 5;
             this.txtNameUser.Text = "user";
+            // 
+            // misSolicitudesToolStripMenuItem
+            // 
+            this.misSolicitudesToolStripMenuItem.Name = "misSolicitudesToolStripMenuItem";
+            this.misSolicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.misSolicitudesToolStripMenuItem.Text = "Mis solicitudes";
+            this.misSolicitudesToolStripMenuItem.Click += new System.EventHandler(this.misSolicitudesToolStripMenuItem_Click);
+            // 
+            // solicitudesToolStripMenuItem
+            // 
+            this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
+            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.solicitudesToolStripMenuItem.Text = "Solicitudes";
+            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -242,6 +265,7 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.container.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,6 +289,8 @@
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calendarioToolStripMenuItem;
         private System.Windows.Forms.MonthCalendar monthCalendar;
+        private System.Windows.Forms.ToolStripMenuItem misSolicitudesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem solicitudesToolStripMenuItem;
     }
 }
 

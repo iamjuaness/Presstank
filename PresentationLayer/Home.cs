@@ -107,39 +107,24 @@ namespace PresentationLayer
         }
 
 
-        // Método para abrir el formulario de solicitud de préstamo
-        private void requestLoan_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                RequestLoanForm requestLoanForm = new RequestLoanForm();
-                requestLoanForm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al mostrar el formulario de solicitud de préstamo: {ex.Message}");
-            }
-        }
-
-        private void payLoanInstallment_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                PayLoanInstallmentForm payLoanInstallmentForm = new PayLoanInstallmentForm();
-                payLoanInstallmentForm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al mostrar el formulario de pago de cuota: {ex.Message}");
-            }
-        }
-
         private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReportsAndQueries reportsAndQueries = new ReportsAndQueries();
-            reportsAndQueries.ShowDialog();
-            
+            // Limpia el contenido actual del panel
+            container.Controls.Clear();
+
+            // Crea una instancia del formulario de reportes
+            ReportsAndQueries reportsAndQueries = new ReportsAndQueries
+            {
+                TopLevel = false,        // Indica que no será el formulario superior
+                FormBorderStyle = FormBorderStyle.None,  // Sin bordes
+                Dock = DockStyle.Fill    // Expande el formulario en el panel
+            };
+
+            // Agrega el formulario al panel `container` y lo muestra
+            container.Controls.Add(reportsAndQueries);
+            reportsAndQueries.Show();
         }
+
 
         // Método para abrir la Calculadora
         private void btnCalculadora_Click(object sender, EventArgs e)
@@ -157,15 +142,76 @@ namespace PresentationLayer
         // Método para abrir el Calendario
         private void btnCalendario_Click(object sender, EventArgs e)
         {
+            // Limpia el contenido actual del panel
+            container.Controls.Clear();
+
+            // Agrega el calendario al panel `container`
+            monthCalendar.Dock = DockStyle.Fill;
+            monthCalendar.Visible = true;
+
+            container.Controls.Add(monthCalendar);
+        }
+
+
+        // Método para abrir el formulario de solicitud de préstamo en el panel.
+        private void requestLoan_Click(object sender, EventArgs e)
+        {
             try
             {
-                this.monthCalendar.Visible = !this.monthCalendar.Visible;
+                RequestLoanForm requestLoanForm = new RequestLoanForm();
+                EmbedFormInPanel(requestLoanForm);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo abrir el Calendario. " + ex.Message);
+                MessageBox.Show($"Error al mostrar el formulario de solicitud de préstamo: {ex.Message}");
             }
         }
 
+        // Método para abrir el formulario de pago de cuota en el panel.
+        private void payLoanInstallment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PayLoanInstallmentForm payLoanInstallmentForm = new PayLoanInstallmentForm();
+                EmbedFormInPanel(payLoanInstallmentForm);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al mostrar el formulario de pago de cuota: {ex.Message}");
+            }
+        }
+
+        // Método para abrir el formulario de mis solicitudes en el panel.
+        private void misSolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MisSolicitudes misSolicitudes = new MisSolicitudes();
+            EmbedFormInPanel(misSolicitudes);
+        }
+
+        // Método para abrir el formulario de solicitudes en el panel.
+        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Solicitudes solicitudes = new Solicitudes();
+            EmbedFormInPanel(solicitudes);
+        }
+
+        /// <summary>
+        /// Embeds the specified form within the container panel on the Home form.
+        /// </summary>
+        /// <param name="form">The form to embed inside the container panel.</param>
+        private void EmbedFormInPanel(Form form)
+        {
+            // Limpiar cualquier control previo en el panel.
+            container.Controls.Clear();
+
+            // Configurar el formulario para mostrarse dentro del panel.
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al panel y mostrarlo.
+            container.Controls.Add(form);
+            form.Show();
+        }
     }
 }
