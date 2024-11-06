@@ -76,6 +76,14 @@ namespace PresentationLayer
             reports_consults.Visible = true;
             utils.Visible = true;
             help.Visible = true;
+            gestionPrestamos.Visible = true;
+            bitacora.Visible = true;
+            gestionUsuarios.Visible = true;
+
+            prestamosPorSucursalToolStripMenuItem.Visible = true;
+            buscarHistorialDePagosToolStripMenuItem.Visible = true;
+            historialDePagosToolStripMenuItem.Visible = true;
+            consultarEstadoDeCuentaToolStripMenuItem.Visible = true;
         }
 
         /// <summary>
@@ -90,6 +98,14 @@ namespace PresentationLayer
             reports_consults.Visible = true;
             utils.Visible = true;
             help.Visible = true;
+            gestionPrestamos.Visible = true;
+            bitacora.Visible = false;
+            gestionUsuarios.Visible = false;
+
+            prestamosPorSucursalToolStripMenuItem.Visible = true;
+            buscarHistorialDePagosToolStripMenuItem.Visible = true;
+            historialDePagosToolStripMenuItem.Visible = true;
+            consultarEstadoDeCuentaToolStripMenuItem.Visible = true;
         }
 
         /// <summary>
@@ -104,9 +120,14 @@ namespace PresentationLayer
             reports_consults.Visible = true;
             utils.Visible = true;
             help.Visible = true;
+            gestionPrestamos.Visible = false;
+            bitacora.Visible = false;
+            gestionUsuarios.Visible = false;
 
-            // Ocultar la opción 'solicitudesToolStripMenuItem' para usuarios esporádicos
-            solicitudesToolStripMenuItem.Visible = false;
+            prestamosPorSucursalToolStripMenuItem.Visible = false;
+            buscarHistorialDePagosToolStripMenuItem.Visible = false;
+            historialDePagosToolStripMenuItem.Visible = true;
+            consultarEstadoDeCuentaToolStripMenuItem.Visible = true;
         }
 
 
@@ -191,13 +212,6 @@ namespace PresentationLayer
             EmbedFormInPanel(misSolicitudes);
         }
 
-        // Método para abrir el formulario de solicitudes en el panel.
-        private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Solicitudes solicitudes = new Solicitudes();
-            EmbedFormInPanel(solicitudes);
-        }
-
         /// <summary>
         /// Embeds the specified form within the container panel on the Home form.
         /// </summary>
@@ -215,6 +229,12 @@ namespace PresentationLayer
             // Agregar el formulario al panel y mostrarlo.
             container.Controls.Add(form);
             form.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Solicitudes solicitudes = new Solicitudes();
+            EmbedFormInPanel(solicitudes);
         }
     }
 }

@@ -80,5 +80,6 @@ namespace PresentationLayer
             txtLoanAmount.Clear();
             cmbLoanPeriod.SelectedIndex = -1;
         }
+
     }
 }

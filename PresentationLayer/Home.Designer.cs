@@ -32,13 +32,19 @@
             this.transactions = new FontAwesome.Sharp.IconMenuItem();
             this.requestLoan = new FontAwesome.Sharp.IconMenuItem();
             this.payLoanInstallment = new FontAwesome.Sharp.IconMenuItem();
+            this.gestionPrestamos = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.solicitudesAceptadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamosRechazadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosMorososToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reports_consults = new FontAwesome.Sharp.IconMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.misSolicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utils = new FontAwesome.Sharp.IconMenuItem();
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacora = new FontAwesome.Sharp.IconMenuItem();
             this.help = new FontAwesome.Sharp.IconMenuItem();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.menuTitle = new System.Windows.Forms.MenuStrip();
@@ -46,6 +52,13 @@
             this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
+            this.consultarEstadoDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamosPorSucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarHistorialDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionUsuarios = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.container.SuspendLayout();
             this.SuspendLayout();
@@ -55,13 +68,16 @@
             this.menu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestionUsuarios,
             this.transactions,
+            this.gestionPrestamos,
             this.reports_consults,
             this.utils,
+            this.bitacora,
             this.help});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1038, 83);
+            this.menu.Size = new System.Drawing.Size(1898, 83);
             this.menu.TabIndex = 0;
             this.menu.Text = "menu";
             // 
@@ -87,7 +103,7 @@
             this.requestLoan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.requestLoan.IconSize = 40;
             this.requestLoan.Name = "requestLoan";
-            this.requestLoan.Size = new System.Drawing.Size(256, 34);
+            this.requestLoan.Size = new System.Drawing.Size(270, 34);
             this.requestLoan.Text = "Solicitar Préstamo";
             this.requestLoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.requestLoan.Click += new System.EventHandler(this.requestLoan_Click);
@@ -99,17 +115,69 @@
             this.payLoanInstallment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.payLoanInstallment.IconSize = 40;
             this.payLoanInstallment.Name = "payLoanInstallment";
-            this.payLoanInstallment.Size = new System.Drawing.Size(256, 34);
+            this.payLoanInstallment.Size = new System.Drawing.Size(270, 34);
             this.payLoanInstallment.Text = "Pagar Cuota";
             this.payLoanInstallment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.payLoanInstallment.Click += new System.EventHandler(this.payLoanInstallment_Click);
+            // 
+            // gestionPrestamos
+            // 
+            this.gestionPrestamos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.solicitudesAceptadasToolStripMenuItem,
+            this.prestamosRechazadosToolStripMenuItem,
+            this.usuariosMorososToolStripMenuItem});
+            this.gestionPrestamos.IconChar = FontAwesome.Sharp.IconChar.MoneyBills;
+            this.gestionPrestamos.IconColor = System.Drawing.Color.Black;
+            this.gestionPrestamos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.gestionPrestamos.IconSize = 50;
+            this.gestionPrestamos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.gestionPrestamos.Name = "gestionPrestamos";
+            this.gestionPrestamos.Size = new System.Drawing.Size(202, 79);
+            this.gestionPrestamos.Text = "Gestión de prestamos";
+            this.gestionPrestamos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(295, 34);
+            this.toolStripMenuItem3.Text = "Solicitudes Pendientes";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(295, 34);
+            this.toolStripMenuItem4.Text = "Solicitudes en Estudio";
+            // 
+            // solicitudesAceptadasToolStripMenuItem
+            // 
+            this.solicitudesAceptadasToolStripMenuItem.Name = "solicitudesAceptadasToolStripMenuItem";
+            this.solicitudesAceptadasToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.solicitudesAceptadasToolStripMenuItem.Text = "Solicitudes Aceptadas";
+            // 
+            // prestamosRechazadosToolStripMenuItem
+            // 
+            this.prestamosRechazadosToolStripMenuItem.Name = "prestamosRechazadosToolStripMenuItem";
+            this.prestamosRechazadosToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.prestamosRechazadosToolStripMenuItem.Text = "Solicitudes Rechazadas";
+            // 
+            // usuariosMorososToolStripMenuItem
+            // 
+            this.usuariosMorososToolStripMenuItem.Name = "usuariosMorososToolStripMenuItem";
+            this.usuariosMorososToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.usuariosMorososToolStripMenuItem.Text = "Usuarios Morosos";
             // 
             // reports_consults
             // 
             this.reports_consults.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reportesToolStripMenuItem,
             this.misSolicitudesToolStripMenuItem,
-            this.solicitudesToolStripMenuItem});
+            this.prestamosPorSucursalToolStripMenuItem,
+            this.buscarHistorialDePagosToolStripMenuItem,
+            this.consultarEstadoDeCuentaToolStripMenuItem,
+            this.historialDePagosToolStripMenuItem});
             this.reports_consults.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
             this.reports_consults.IconColor = System.Drawing.Color.Black;
             this.reports_consults.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -123,23 +191,16 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // misSolicitudesToolStripMenuItem
             // 
             this.misSolicitudesToolStripMenuItem.Name = "misSolicitudesToolStripMenuItem";
-            this.misSolicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.misSolicitudesToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
             this.misSolicitudesToolStripMenuItem.Text = "Mis solicitudes";
             this.misSolicitudesToolStripMenuItem.Click += new System.EventHandler(this.misSolicitudesToolStripMenuItem_Click);
-            // 
-            // solicitudesToolStripMenuItem
-            // 
-            this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
-            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.solicitudesToolStripMenuItem.Text = "Solicitudes";
-            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
             // 
             // utils
             // 
@@ -159,16 +220,28 @@
             // calculadoraToolStripMenuItem
             // 
             this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.btnCalculadora_Click);
             // 
             // calendarioToolStripMenuItem
             // 
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
-            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.calendarioToolStripMenuItem.Text = "Calendario";
             this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.btnCalendario_Click);
+            // 
+            // bitacora
+            // 
+            this.bitacora.IconChar = FontAwesome.Sharp.IconChar.Folder;
+            this.bitacora.IconColor = System.Drawing.Color.Black;
+            this.bitacora.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bitacora.IconSize = 50;
+            this.bitacora.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.bitacora.Name = "bitacora";
+            this.bitacora.Size = new System.Drawing.Size(91, 79);
+            this.bitacora.Text = "Bitácora";
+            this.bitacora.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // help
             // 
@@ -198,7 +271,7 @@
             this.menuTitle.Location = new System.Drawing.Point(0, 0);
             this.menuTitle.Name = "menuTitle";
             this.menuTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitle.Size = new System.Drawing.Size(1038, 72);
+            this.menuTitle.Size = new System.Drawing.Size(1898, 72);
             this.menuTitle.TabIndex = 1;
             this.menuTitle.Text = "menuTitulo";
             // 
@@ -220,7 +293,7 @@
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.container.Location = new System.Drawing.Point(0, 155);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(1038, 541);
+            this.container.Size = new System.Drawing.Size(1898, 869);
             this.container.TabIndex = 3;
             // 
             // txtUsuario
@@ -229,7 +302,7 @@
             this.txtUsuario.BackColor = System.Drawing.Color.SteelBlue;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtUsuario.Location = new System.Drawing.Point(779, 18);
+            this.txtUsuario.Location = new System.Drawing.Point(1521, 18);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(102, 29);
             this.txtUsuario.TabIndex = 4;
@@ -241,17 +314,78 @@
             this.txtNameUser.BackColor = System.Drawing.Color.SteelBlue;
             this.txtNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameUser.ForeColor = System.Drawing.Color.White;
-            this.txtNameUser.Location = new System.Drawing.Point(887, 18);
+            this.txtNameUser.Location = new System.Drawing.Point(1629, 18);
             this.txtNameUser.Name = "txtNameUser";
             this.txtNameUser.Size = new System.Drawing.Size(60, 29);
             this.txtNameUser.TabIndex = 5;
             this.txtNameUser.Text = "user";
             // 
+            // consultarEstadoDeCuentaToolStripMenuItem
+            // 
+            this.consultarEstadoDeCuentaToolStripMenuItem.Name = "consultarEstadoDeCuentaToolStripMenuItem";
+            this.consultarEstadoDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
+            this.consultarEstadoDeCuentaToolStripMenuItem.Text = "Consultar estado de cuenta";
+            // 
+            // prestamosPorSucursalToolStripMenuItem
+            // 
+            this.prestamosPorSucursalToolStripMenuItem.Name = "prestamosPorSucursalToolStripMenuItem";
+            this.prestamosPorSucursalToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
+            this.prestamosPorSucursalToolStripMenuItem.Text = "Prestamos por sucursal";
+            // 
+            // buscarHistorialDePagosToolStripMenuItem
+            // 
+            this.buscarHistorialDePagosToolStripMenuItem.Name = "buscarHistorialDePagosToolStripMenuItem";
+            this.buscarHistorialDePagosToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
+            this.buscarHistorialDePagosToolStripMenuItem.Text = "Buscar Historial de pagos";
+            // 
+            // historialDePagosToolStripMenuItem
+            // 
+            this.historialDePagosToolStripMenuItem.Name = "historialDePagosToolStripMenuItem";
+            this.historialDePagosToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
+            this.historialDePagosToolStripMenuItem.Text = "Historial de pagos";
+            // 
+            // gestionUsuarios
+            // 
+            this.gestionUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iconMenuItem2,
+            this.iconMenuItem3});
+            this.gestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.UserGear;
+            this.gestionUsuarios.IconColor = System.Drawing.Color.Black;
+            this.gestionUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.gestionUsuarios.IconSize = 50;
+            this.gestionUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.gestionUsuarios.Name = "gestionUsuarios";
+            this.gestionUsuarios.Size = new System.Drawing.Size(184, 79);
+            this.gestionUsuarios.Text = "Gestion de usuarios";
+            this.gestionUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // iconMenuItem2
+            // 
+            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
+            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem2.IconSize = 40;
+            this.iconMenuItem2.Name = "iconMenuItem2";
+            this.iconMenuItem2.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem2.Text = "Solicitar Préstamo";
+            this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // iconMenuItem3
+            // 
+            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.CreditCardAlt;
+            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem3.IconSize = 40;
+            this.iconMenuItem3.Name = "iconMenuItem3";
+            this.iconMenuItem3.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem3.Text = "Pagar Cuota";
+            this.iconMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 696);
+            this.ClientSize = new System.Drawing.Size(1898, 1024);
             this.Controls.Add(this.txtNameUser);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.container);
@@ -290,7 +424,20 @@
         private System.Windows.Forms.ToolStripMenuItem calendarioToolStripMenuItem;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.ToolStripMenuItem misSolicitudesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem solicitudesToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem gestionPrestamos;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private FontAwesome.Sharp.IconMenuItem bitacora;
+        private System.Windows.Forms.ToolStripMenuItem solicitudesAceptadasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prestamosRechazadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosMorososToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prestamosPorSucursalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarHistorialDePagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarEstadoDeCuentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historialDePagosToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem gestionUsuarios;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
     }
 }
 

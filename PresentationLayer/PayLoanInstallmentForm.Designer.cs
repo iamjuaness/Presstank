@@ -46,36 +46,40 @@ namespace PresentationLayer
             // lblLoan
             // 
             this.lblLoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblLoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoan.Location = new System.Drawing.Point(68, 142);
+            this.lblLoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoan.Location = new System.Drawing.Point(560, 180);
             this.lblLoan.Name = "lblLoan";
-            this.lblLoan.Size = new System.Drawing.Size(251, 33);
+            this.lblLoan.Size = new System.Drawing.Size(400, 60);
             this.lblLoan.TabIndex = 0;
             this.lblLoan.Text = "Préstamo:";
+            this.lblLoan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbLoan
             // 
             this.cmbLoan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoan.Location = new System.Drawing.Point(356, 142);
+            this.cmbLoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.cmbLoan.Location = new System.Drawing.Point(980, 180);
             this.cmbLoan.Name = "cmbLoan";
-            this.cmbLoan.Size = new System.Drawing.Size(304, 28);
+            this.cmbLoan.Size = new System.Drawing.Size(300, 54);
             this.cmbLoan.TabIndex = 1;
             // 
             // lblInstallmentAmount
             // 
             this.lblInstallmentAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblInstallmentAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstallmentAmount.Location = new System.Drawing.Point(68, 271);
+            this.lblInstallmentAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstallmentAmount.Location = new System.Drawing.Point(560, 320);
             this.lblInstallmentAmount.Name = "lblInstallmentAmount";
-            this.lblInstallmentAmount.Size = new System.Drawing.Size(251, 33);
+            this.lblInstallmentAmount.Size = new System.Drawing.Size(400, 60);
             this.lblInstallmentAmount.TabIndex = 6;
             this.lblInstallmentAmount.Text = "Monto de Cuota:";
+            this.lblInstallmentAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtInstallmentAmount
             // 
-            this.txtInstallmentAmount.Location = new System.Drawing.Point(356, 271);
+            this.txtInstallmentAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txtInstallmentAmount.Location = new System.Drawing.Point(980, 320);
             this.txtInstallmentAmount.Name = "txtInstallmentAmount";
-            this.txtInstallmentAmount.Size = new System.Drawing.Size(304, 26);
+            this.txtInstallmentAmount.Size = new System.Drawing.Size(300, 53);
             this.txtInstallmentAmount.TabIndex = 7;
             // 
             // btnRegisterPayment
@@ -84,14 +88,15 @@ namespace PresentationLayer
             this.btnRegisterPayment.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnRegisterPayment.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRegisterPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btnRegisterPayment.ForeColor = System.Drawing.Color.White;
             this.btnRegisterPayment.IconChar = FontAwesome.Sharp.IconChar.Check;
             this.btnRegisterPayment.IconColor = System.Drawing.Color.White;
             this.btnRegisterPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRegisterPayment.IconSize = 32;
-            this.btnRegisterPayment.Location = new System.Drawing.Point(141, 401);
+            this.btnRegisterPayment.IconSize = 40;
+            this.btnRegisterPayment.Location = new System.Drawing.Point(560, 500);
             this.btnRegisterPayment.Name = "btnRegisterPayment";
-            this.btnRegisterPayment.Size = new System.Drawing.Size(183, 52);
+            this.btnRegisterPayment.Size = new System.Drawing.Size(300, 70);
             this.btnRegisterPayment.TabIndex = 8;
             this.btnRegisterPayment.Text = "Registrar Pago";
             this.btnRegisterPayment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -105,14 +110,15 @@ namespace PresentationLayer
             this.btnCancel.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
             this.btnCancel.IconColor = System.Drawing.Color.White;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCancel.IconSize = 32;
-            this.btnCancel.Location = new System.Drawing.Point(402, 401);
+            this.btnCancel.IconSize = 40;
+            this.btnCancel.Location = new System.Drawing.Point(980, 500);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(170, 52);
+            this.btnCancel.Size = new System.Drawing.Size(300, 70);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,9 +130,9 @@ namespace PresentationLayer
             // 
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(738, 0);
+            this.label1.Location = new System.Drawing.Point(1631, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 500);
+            this.label1.Size = new System.Drawing.Size(300, 900);
             this.label1.TabIndex = 10;
             // 
             // iconPictureBox1
@@ -136,7 +142,7 @@ namespace PresentationLayer
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 129;
-            this.iconPictureBox1.Location = new System.Drawing.Point(833, 142);
+            this.iconPictureBox1.Location = new System.Drawing.Point(1725, 303);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(129, 129);
             this.iconPictureBox1.TabIndex = 11;
@@ -146,11 +152,11 @@ namespace PresentationLayer
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(792, 290);
+            this.label2.Location = new System.Drawing.Point(1645, 455);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 36);
+            this.label2.Size = new System.Drawing.Size(263, 46);
             this.label2.TabIndex = 12;
             this.label2.Text = "PRESSTANK";
             // 
@@ -158,9 +164,8 @@ namespace PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1038, 500);
+            this.ClientSize = new System.Drawing.Size(1931, 900);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);
@@ -180,7 +185,6 @@ namespace PresentationLayer
 
         }
 
-
         #endregion
 
         private System.Windows.Forms.Label lblLoan;
@@ -192,6 +196,5 @@ namespace PresentationLayer
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label2;
-   
     }
 }
