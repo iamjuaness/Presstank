@@ -34,6 +34,8 @@
             this.payLoanInstallment = new FontAwesome.Sharp.IconMenuItem();
             this.reports_consults = new FontAwesome.Sharp.IconMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.misSolicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utils = new FontAwesome.Sharp.IconMenuItem();
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,6 @@
             this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
-            this.misSolicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.container.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             this.requestLoan.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.requestLoan.IconSize = 40;
             this.requestLoan.Name = "requestLoan";
-            this.requestLoan.Size = new System.Drawing.Size(270, 34);
+            this.requestLoan.Size = new System.Drawing.Size(256, 34);
             this.requestLoan.Text = "Solicitar Préstamo";
             this.requestLoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.requestLoan.Click += new System.EventHandler(this.requestLoan_Click);
@@ -99,7 +99,7 @@
             this.payLoanInstallment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.payLoanInstallment.IconSize = 40;
             this.payLoanInstallment.Name = "payLoanInstallment";
-            this.payLoanInstallment.Size = new System.Drawing.Size(270, 34);
+            this.payLoanInstallment.Size = new System.Drawing.Size(256, 34);
             this.payLoanInstallment.Text = "Pagar Cuota";
             this.payLoanInstallment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.payLoanInstallment.Click += new System.EventHandler(this.payLoanInstallment_Click);
@@ -127,6 +127,20 @@
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
+            // misSolicitudesToolStripMenuItem
+            // 
+            this.misSolicitudesToolStripMenuItem.Name = "misSolicitudesToolStripMenuItem";
+            this.misSolicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.misSolicitudesToolStripMenuItem.Text = "Mis solicitudes";
+            this.misSolicitudesToolStripMenuItem.Click += new System.EventHandler(this.misSolicitudesToolStripMenuItem_Click);
+            // 
+            // solicitudesToolStripMenuItem
+            // 
+            this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
+            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.solicitudesToolStripMenuItem.Text = "Solicitudes";
+            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
+            // 
             // utils
             // 
             this.utils.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -145,14 +159,14 @@
             // calculadoraToolStripMenuItem
             // 
             this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.btnCalculadora_Click);
             // 
             // calendarioToolStripMenuItem
             // 
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
-            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
             this.calendarioToolStripMenuItem.Text = "Calendario";
             this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.btnCalendario_Click);
             // 
@@ -232,20 +246,6 @@
             this.txtNameUser.Size = new System.Drawing.Size(60, 29);
             this.txtNameUser.TabIndex = 5;
             this.txtNameUser.Text = "user";
-            // 
-            // misSolicitudesToolStripMenuItem
-            // 
-            this.misSolicitudesToolStripMenuItem.Name = "misSolicitudesToolStripMenuItem";
-            this.misSolicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.misSolicitudesToolStripMenuItem.Text = "Mis solicitudes";
-            this.misSolicitudesToolStripMenuItem.Click += new System.EventHandler(this.misSolicitudesToolStripMenuItem_Click);
-            // 
-            // solicitudesToolStripMenuItem
-            // 
-            this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
-            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.solicitudesToolStripMenuItem.Text = "Solicitudes";
-            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
             // 
             // Home
             // 

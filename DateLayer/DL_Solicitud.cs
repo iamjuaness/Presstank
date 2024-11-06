@@ -111,9 +111,68 @@ namespace DateLayer
                     Console.WriteLine($"Error al obtener solicitudes: {ex.Message}");
                 }
             }
-
             return solicitudesDTO;
         }
+
+        public Boolean crearSolicitud(Solicitud solicitud)
+        {
+            // Using a 'using' block to ensure the connection is closed automatically
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Define the SQL query to insert a new solicitud record
+                    string query = @"
+                    INSERT INTO 
+                        SOLICITUD (
+                            Fecha_Solicitud, 
+                            Monto_Solicitado, 
+                            ID_Periodo, 
+                            ID_Estado, 
+                            ID_Empleado
+                        )
+                    VALUES (
+                        @Fecha_Solicitud,
+                        @Monto_Solicitado,
+                        @ID_Periodo,
+                        @ID_Estado, 
+                        @ID_Empleado
+                    )";
+
+                    // Prepare the SQL command and set the connection and query
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    // Add parameters to prevent SQL injection and handle data dynamically
+                    cmd.Parameters.AddWithValue("@Fecha_Solicitud", solicitud.Fecha_Solicitud);
+                    cmd.Parameters.AddWithValue("@Monto_Solicitado", solicitud.Monto_Solicitado);
+                    cmd.Parameters.AddWithValue("@ID_Periodo", solicitud.ID_Periodo);
+                    cmd.Parameters.AddWithValue("@ID_Estado", solicitud.ID_Estado);
+                    cmd.Parameters.AddWithValue("@ID_Empleado", solicitud.ID_Empleado);
+
+                    // Open the database connection
+                    conn.Open();
+
+                    // Execute the command (ExecuteNonQuery returns the number of affected rows)
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // If the insertion failed (no rows affected), return false
+                    if (rowsAffected == 0)
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception if needed, for now, just returning false
+                    // Optionally, log or output the exception
+                    return false;
+                }
+            }
+
+            // If everything went well, return true
+            return true;
+        }
+
 
     }
 }

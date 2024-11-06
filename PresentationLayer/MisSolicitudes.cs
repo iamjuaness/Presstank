@@ -72,10 +72,10 @@ namespace PresentationLayer
 
             // El índice de las columnas puede variar según el orden en que se asignan los datos
             solicitudesDataGridView.Columns["ID_Solicitud"].Width = 150;
-            solicitudesDataGridView.Columns["Fecha_Solicitud"].Width = 150;
-            solicitudesDataGridView.Columns["Monto_Solicitado"].Width = 150;
+            solicitudesDataGridView.Columns["Fecha_Solicitud"].Width = 200;
+            solicitudesDataGridView.Columns["Monto_Solicitado"].Width = 200;
             solicitudesDataGridView.Columns["Periodo"].Width = 150;
-            solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 150;
+            solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 200;
         }
     }
 }

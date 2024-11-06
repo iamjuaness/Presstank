@@ -21,5 +21,10 @@ namespace BusinessLayer
         {
             return solicitud.GetSolicitudesByID(ID);
         }
+
+        public Boolean crearSolicitud(Solicitud newSolicitud)
+        {
+            return solicitud.crearSolicitud(newSolicitud);
+        }
     }
 }

@@ -46,7 +46,7 @@
             this.solicitudesDataGridView.Location = new System.Drawing.Point(12, 12);
             this.solicitudesDataGridView.Name = "solicitudesDataGridView";
             this.solicitudesDataGridView.RowHeadersWidth = 62;
-            this.solicitudesDataGridView.Size = new System.Drawing.Size(881, 400);
+            this.solicitudesDataGridView.Size = new System.Drawing.Size(960, 400);
             this.solicitudesDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 517);
+            this.ClientSize = new System.Drawing.Size(994, 517);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.solicitudesDataGridView);
