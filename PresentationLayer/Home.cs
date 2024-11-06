@@ -70,12 +70,12 @@ namespace PresentationLayer
         private void EnableAdminOptions()
         {
             // All options are enabled for the administrator
-            transactions.Enabled = true;
-            requestLoan.Enabled = true;
-            payLoanInstallment.Enabled = true;
-            reports_consults.Enabled = true;
-            utils.Enabled = true;
-            help.Enabled = true;
+            transactions.Visible = true;
+            requestLoan.Visible = true;
+            payLoanInstallment.Visible = true;
+            reports_consults.Visible = true;
+            utils.Visible = true;
+            help.Visible = true;
         }
 
         /// <summary>
@@ -84,12 +84,12 @@ namespace PresentationLayer
         private void EnableParametricOptions()
         {
             // Limited options for parametric users
-            transactions.Enabled = true;
-            requestLoan.Enabled = true;
-            payLoanInstallment.Enabled = true;
-            reports_consults.Enabled = true;
-            utils.Enabled = true;
-            help.Enabled = true;
+            transactions.Visible = true;
+            requestLoan.Visible = true;
+            payLoanInstallment.Visible = true;
+            reports_consults.Visible = true;
+            utils.Visible = true;
+            help.Visible = true;
         }
 
         /// <summary>
@@ -97,14 +97,16 @@ namespace PresentationLayer
         /// </summary>
         private void EnableSporadicOptions()
         {
-            // Only request loan and help options for sporadic users
-            transactions.Enabled = true;
-            requestLoan.Enabled = true;
-            payLoanInstallment.Enabled = true;
-            reports_consults.Enabled = true;
-            utils.Enabled = true;
-            help.Enabled = true;
-            solicitudesToolStripMenuItem.Enabled = false;
+            // Habilitar opciones para usuarios esporádicos y ocultar las opciones no permitidas
+            transactions.Visible = true;
+            requestLoan.Visible = true;
+            payLoanInstallment.Visible = true;
+            reports_consults.Visible = true;
+            utils.Visible = true;
+            help.Visible = true;
+
+            // Ocultar la opción 'solicitudesToolStripMenuItem' para usuarios esporádicos
+            solicitudesToolStripMenuItem.Visible = false;
         }
 
 
