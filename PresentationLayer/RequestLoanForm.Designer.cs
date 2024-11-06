@@ -47,7 +47,7 @@ namespace PresentationLayer
             // 
             this.lblLoanAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLoanAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblLoanAmount.Location = new System.Drawing.Point(29, 32);
+            this.lblLoanAmount.Location = new System.Drawing.Point(131, 156);
             this.lblLoanAmount.Name = "lblLoanAmount";
             this.lblLoanAmount.Size = new System.Drawing.Size(209, 35);
             this.lblLoanAmount.TabIndex = 0;
@@ -55,17 +55,17 @@ namespace PresentationLayer
             // 
             // txtLoanAmount
             // 
-            this.txtLoanAmount.Location = new System.Drawing.Point(264, 32);
+            this.txtLoanAmount.Location = new System.Drawing.Point(366, 156);
             this.txtLoanAmount.Multiline = true;
             this.txtLoanAmount.Name = "txtLoanAmount";
-            this.txtLoanAmount.Size = new System.Drawing.Size(200, 35);
+            this.txtLoanAmount.Size = new System.Drawing.Size(257, 35);
             this.txtLoanAmount.TabIndex = 1;
             // 
             // lblLoanPeriod
             // 
             this.lblLoanPeriod.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLoanPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblLoanPeriod.Location = new System.Drawing.Point(29, 102);
+            this.lblLoanPeriod.Location = new System.Drawing.Point(131, 226);
             this.lblLoanPeriod.Name = "lblLoanPeriod";
             this.lblLoanPeriod.Size = new System.Drawing.Size(209, 28);
             this.lblLoanPeriod.TabIndex = 2;
@@ -80,9 +80,9 @@ namespace PresentationLayer
             "48",
             "60",
             "72"});
-            this.cmbLoanPeriod.Location = new System.Drawing.Point(264, 102);
+            this.cmbLoanPeriod.Location = new System.Drawing.Point(366, 226);
             this.cmbLoanPeriod.Name = "cmbLoanPeriod";
-            this.cmbLoanPeriod.Size = new System.Drawing.Size(200, 28);
+            this.cmbLoanPeriod.Size = new System.Drawing.Size(257, 28);
             this.cmbLoanPeriod.TabIndex = 3;
             // 
             // btnSubmitRequest
@@ -96,7 +96,7 @@ namespace PresentationLayer
             this.btnSubmitRequest.IconColor = System.Drawing.Color.White;
             this.btnSubmitRequest.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSubmitRequest.IconSize = 32;
-            this.btnSubmitRequest.Location = new System.Drawing.Point(33, 172);
+            this.btnSubmitRequest.Location = new System.Drawing.Point(135, 364);
             this.btnSubmitRequest.Name = "btnSubmitRequest";
             this.btnSubmitRequest.Size = new System.Drawing.Size(183, 52);
             this.btnSubmitRequest.TabIndex = 4;
@@ -117,7 +117,7 @@ namespace PresentationLayer
             this.btnCancel.IconColor = System.Drawing.Color.White;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.IconSize = 32;
-            this.btnCancel.Location = new System.Drawing.Point(294, 172);
+            this.btnCancel.Location = new System.Drawing.Point(396, 364);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(170, 52);
             this.btnCancel.TabIndex = 5;
@@ -131,9 +131,9 @@ namespace PresentationLayer
             // 
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(538, 0);
+            this.label1.Location = new System.Drawing.Point(738, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 260);
+            this.label1.Size = new System.Drawing.Size(300, 499);
             this.label1.TabIndex = 6;
             // 
             // iconPictureBox1
@@ -143,7 +143,7 @@ namespace PresentationLayer
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 129;
-            this.iconPictureBox1.Location = new System.Drawing.Point(632, 32);
+            this.iconPictureBox1.Location = new System.Drawing.Point(830, 140);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(129, 129);
             this.iconPictureBox1.TabIndex = 7;
@@ -155,7 +155,7 @@ namespace PresentationLayer
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(591, 180);
+            this.label2.Location = new System.Drawing.Point(797, 283);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(198, 36);
             this.label2.TabIndex = 8;
@@ -167,7 +167,7 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(838, 260);
+            this.ClientSize = new System.Drawing.Size(1038, 499);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);

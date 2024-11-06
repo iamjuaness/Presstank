@@ -15,8 +15,6 @@ namespace PresentationLayer
         public PayLoanInstallmentForm()
         {
             InitializeComponent();
-            SetPlaceholder(this.txtInstallmentAmount, "Monto del Préstamo");
-            SetPlaceholder(this.txtInstallmentNumber, "Número del Préstamo");
         }
 
         private void btnRegisterPayment_Click(object sender, EventArgs e)
