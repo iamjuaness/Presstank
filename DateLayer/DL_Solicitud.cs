@@ -63,5 +63,57 @@ namespace DateLayer
             return solicitudesDTO;
         }
 
+        public List<MisSolicitudesDTO> GetSolicitudesByID(int ID)
+        {
+            List<MisSolicitudesDTO> solicitudesDTO = new List<MisSolicitudesDTO>();
+
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                    SELECT 
+                        s.ID_Solicitud,
+                        s.Fecha_Solicitud,
+                        s.Monto_Solicitado,
+                        p.CANTIDAD_MESES AS Periodo,
+                        e.Estado AS Estado_Solicitud
+                    FROM 
+                        Solicitud s
+                    JOIN 
+                        Periodo p ON s.ID_Periodo = p.ID_Periodo
+                    JOIN 
+                        Estado_Solicitud e ON s.ID_Estado = e.ID_Estado
+                    WHERE ID_Empleado = @ID_Usuario";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID_Usuario", ID);
+
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            solicitudesDTO.Add(new MisSolicitudesDTO
+                            {
+                                ID_Solicitud = Convert.ToInt32(reader["ID_Solicitud"]),
+                                Fecha_Solicitud = Convert.ToDateTime(reader["Fecha_Solicitud"]),
+                                Monto_Solicitado = Convert.ToDecimal(reader["Monto_Solicitado"]),
+                                Periodo = Convert.ToInt32(reader["Periodo"]),
+                                Estado_Solicitud = reader["Estado_Solicitud"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al obtener solicitudes: {ex.Message}");
+                }
+            }
+
+            return solicitudesDTO;
+        }
+
     }
 }

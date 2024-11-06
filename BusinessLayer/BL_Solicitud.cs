@@ -16,5 +16,10 @@ namespace BusinessLayer
         {
             return solicitud.GetSolicitudes();
         }
+
+        public List<MisSolicitudesDTO> GetMisSolicitudes(int ID)
+        {
+            return solicitud.GetSolicitudesByID(ID);
+        }
     }
 }

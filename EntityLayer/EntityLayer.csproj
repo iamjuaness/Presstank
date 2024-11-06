@@ -45,6 +45,7 @@
     <Compile Include="Cargo.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Estado_Solicitud.cs" />
+    <Compile Include="MisSolicitudesDTO.cs" />
     <Compile Include="Municipio.cs" />
     <Compile Include="Nivel_Usuario.cs" />
     <Compile Include="Pago_Cuota.cs" />

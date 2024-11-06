@@ -17,7 +17,7 @@ namespace PresentationLayer
     {
 
         private static Usuario usuarioAct;
-        private static Empleado infoUsuario;
+        public static Empleado infoUsuario;
 
         BL_Nivel bL_Nivel = new BL_Nivel();
 
@@ -104,6 +104,7 @@ namespace PresentationLayer
             reports_consults.Enabled = true;
             utils.Enabled = true;
             help.Enabled = true;
+            solicitudesToolStripMenuItem.Enabled = false;
         }
 
 

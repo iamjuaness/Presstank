@@ -85,3 +85,4 @@ C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\P
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.exe
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.pdb
 C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.Solicitudes.resources
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\PresentationLayer\obj\Debug\PresentationLayer.MisSolicitudes.resources
