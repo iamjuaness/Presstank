@@ -15,10 +15,10 @@ namespace PresentationLayer
     public partial class Solicitudes : Form
     {
         BL_Solicitud solicitud = new BL_Solicitud();
-        public Solicitudes()
+        public Solicitudes(string estado)
         {
             InitializeComponent();
-            CargarSolicitudes();
+            CargarSolicitudes(estado);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,12 +29,22 @@ namespace PresentationLayer
                 DataGridViewRow selectedRow = solicitudesDataGridView.SelectedRows[0];
                 string idSolicitud = selectedRow.Cells["ID_Solicitud"].Value.ToString();
 
-                // Aquí procesarías la lógica para aceptar la solicitud.
-                MessageBox.Show("Solicitud " + idSolicitud + " aceptada.");
+                bool changeSolicitud = solicitud.cambiarEstadoSolicitud(idSolicitud, "2");
+
+                if (changeSolicitud)
+                {
+                    solicitudesDataGridView.Refresh();
+                    Solicitudes solicitudes = new Solicitudes("2");
+                    Home.EmbedFormInPanel(solicitudes);
+
+                } else
+                {
+                    MessageBox.Show("Error al revisar la solicitud.");
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una solicitud antes de aceptar.");
+                MessageBox.Show("Seleccione una solicitud para revisar.");
             }
         }
 
@@ -56,14 +66,13 @@ namespace PresentationLayer
             }
         }
 
-        public void CargarSolicitudes()
+        public void CargarSolicitudes(string estado)
         {
             // Limpiar las columnas del DataGridView antes de agregar nuevas
             solicitudesDataGridView.Columns.Clear();
 
             // Obtener las solicitudes
-            List<SolicitudDTO> solicitudes = solicitud.GetSolicitudes();
-            Console.WriteLine(solicitudes.ToString());
+            List<SolicitudDTO> solicitudes = solicitud.GetSolicitudes(estado);
 
             // Asignar la lista como el origen de datos
             solicitudesDataGridView.DataSource = solicitudes;

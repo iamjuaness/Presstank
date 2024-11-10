@@ -216,7 +216,7 @@ namespace PresentationLayer
         /// Embeds the specified form within the container panel on the Home form.
         /// </summary>
         /// <param name="form">The form to embed inside the container panel.</param>
-        private void EmbedFormInPanel(Form form)
+        public static void EmbedFormInPanel(Form form)
         {
             // Limpiar cualquier control previo en el panel.
             container.Controls.Clear();
@@ -233,7 +233,13 @@ namespace PresentationLayer
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            Solicitudes solicitudes = new Solicitudes();
+            Solicitudes solicitudes = new Solicitudes("1");
+            EmbedFormInPanel(solicitudes);
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Solicitudes solicitudes = new Solicitudes("2");
             EmbedFormInPanel(solicitudes);
         }
     }

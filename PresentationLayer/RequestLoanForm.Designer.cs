@@ -35,10 +35,10 @@ namespace PresentationLayer
             // lblLoanAmount
             // 
             this.lblLoanAmount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblLoanAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoanAmount.Location = new System.Drawing.Point(239, 180);
+            this.lblLoanAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoanAmount.Location = new System.Drawing.Point(59, 165);
             this.lblLoanAmount.Name = "lblLoanAmount";
-            this.lblLoanAmount.Size = new System.Drawing.Size(495, 60);
+            this.lblLoanAmount.Size = new System.Drawing.Size(272, 50);
             this.lblLoanAmount.TabIndex = 0;
             this.lblLoanAmount.Text = "Monto del Préstamo:";
             this.lblLoanAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -46,19 +46,19 @@ namespace PresentationLayer
             // txtLoanAmount
             // 
             this.txtLoanAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txtLoanAmount.Location = new System.Drawing.Point(754, 180);
+            this.txtLoanAmount.Location = new System.Drawing.Point(389, 159);
             this.txtLoanAmount.Multiline = true;
             this.txtLoanAmount.Name = "txtLoanAmount";
-            this.txtLoanAmount.Size = new System.Drawing.Size(300, 50);
+            this.txtLoanAmount.Size = new System.Drawing.Size(247, 50);
             this.txtLoanAmount.TabIndex = 1;
             // 
             // lblLoanPeriod
             // 
             this.lblLoanPeriod.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblLoanPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoanPeriod.Location = new System.Drawing.Point(239, 320);
+            this.lblLoanPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoanPeriod.Location = new System.Drawing.Point(59, 296);
             this.lblLoanPeriod.Name = "lblLoanPeriod";
-            this.lblLoanPeriod.Size = new System.Drawing.Size(400, 60);
+            this.lblLoanPeriod.Size = new System.Drawing.Size(222, 54);
             this.lblLoanPeriod.TabIndex = 2;
             this.lblLoanPeriod.Text = "Plazo (meses):";
             this.lblLoanPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -73,9 +73,9 @@ namespace PresentationLayer
             "48",
             "60",
             "72"});
-            this.cmbLoanPeriod.Location = new System.Drawing.Point(754, 320);
+            this.cmbLoanPeriod.Location = new System.Drawing.Point(389, 296);
             this.cmbLoanPeriod.Name = "cmbLoanPeriod";
-            this.cmbLoanPeriod.Size = new System.Drawing.Size(300, 54);
+            this.cmbLoanPeriod.Size = new System.Drawing.Size(247, 54);
             this.cmbLoanPeriod.TabIndex = 3;
             // 
             // btnSubmitRequest
@@ -90,7 +90,7 @@ namespace PresentationLayer
             this.btnSubmitRequest.IconColor = System.Drawing.Color.White;
             this.btnSubmitRequest.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSubmitRequest.IconSize = 40;
-            this.btnSubmitRequest.Location = new System.Drawing.Point(334, 500);
+            this.btnSubmitRequest.Location = new System.Drawing.Point(59, 443);
             this.btnSubmitRequest.Name = "btnSubmitRequest";
             this.btnSubmitRequest.Size = new System.Drawing.Size(305, 70);
             this.btnSubmitRequest.TabIndex = 4;
@@ -112,9 +112,9 @@ namespace PresentationLayer
             this.btnCancel.IconColor = System.Drawing.Color.White;
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.IconSize = 40;
-            this.btnCancel.Location = new System.Drawing.Point(754, 500);
+            this.btnCancel.Location = new System.Drawing.Point(431, 443);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(300, 70);
+            this.btnCancel.Size = new System.Drawing.Size(205, 70);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,9 +126,9 @@ namespace PresentationLayer
             // 
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(1564, 0);
+            this.label1.Location = new System.Drawing.Point(710, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 900);
+            this.label1.Size = new System.Drawing.Size(368, 587);
             this.label1.TabIndex = 6;
             // 
             // iconPictureBox1
@@ -138,7 +138,7 @@ namespace PresentationLayer
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 129;
-            this.iconPictureBox1.Location = new System.Drawing.Point(1692, 268);
+            this.iconPictureBox1.Location = new System.Drawing.Point(845, 179);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(129, 129);
             this.iconPictureBox1.TabIndex = 7;
@@ -150,7 +150,7 @@ namespace PresentationLayer
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1625, 431);
+            this.label2.Location = new System.Drawing.Point(778, 342);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 46);
             this.label2.TabIndex = 8;
@@ -161,7 +161,7 @@ namespace PresentationLayer
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1932, 900);
+            this.ClientSize = new System.Drawing.Size(1078, 587);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);

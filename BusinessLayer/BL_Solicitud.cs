@@ -12,9 +12,9 @@ namespace BusinessLayer
     {
         DL_Solicitud solicitud = new DL_Solicitud();
 
-        public List<SolicitudDTO> GetSolicitudes()
+        public List<SolicitudDTO> GetSolicitudes(string estado)
         {
-            return solicitud.GetSolicitudes();
+            return solicitud.GetSolicitudes(estado);
         }
 
         public List<MisSolicitudesDTO> GetMisSolicitudes(int ID)
@@ -25,6 +25,11 @@ namespace BusinessLayer
         public Boolean crearSolicitud(Solicitud newSolicitud)
         {
             return solicitud.crearSolicitud(newSolicitud);
+        }
+
+        public Boolean cambiarEstadoSolicitud(string idSolicitud, string estado)
+        {
+            return solicitud.cambiarEstadoSolicitud(idSolicitud, estado);
         }
     }
 }

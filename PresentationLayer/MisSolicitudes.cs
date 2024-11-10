@@ -77,5 +77,10 @@ namespace PresentationLayer
             solicitudesDataGridView.Columns["Periodo"].Width = 150;
             solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 200;
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
