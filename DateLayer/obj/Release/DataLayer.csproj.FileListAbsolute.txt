@@ -1,0 +1,9 @@
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\bin\Release\DateLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\bin\Release\DateLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\bin\Release\EntityLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\bin\Release\EntityLayer.pdb
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\obj\Release\DataLayer.csproj.AssemblyReference.cache
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\obj\Release\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\obj\Release\DataLayer.csproj.Up2Date
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\obj\Release\DateLayer.dll
+C:\Users\cardo\OneDrive\Escritorio\Juanes\Programacion\Proyectos\BD1\Presstank\Presstank\DateLayer\obj\Release\DateLayer.pdb

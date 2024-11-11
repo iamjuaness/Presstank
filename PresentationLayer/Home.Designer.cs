@@ -56,14 +56,15 @@
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.menuTitle = new System.Windows.Forms.MenuStrip();
             this.title = new System.Windows.Forms.Label();
+            this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
+            this.container.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
             // 
-            this.menu.AutoSize = false;
             this.menu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -76,7 +77,7 @@
             this.help});
             this.menu.Location = new System.Drawing.Point(0, 72);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1078, 83);
+            this.menu.Size = new System.Drawing.Size(1478, 83);
             this.menu.TabIndex = 0;
             this.menu.Text = "menu";
             // 
@@ -199,6 +200,7 @@
             this.prestamosRechazadosToolStripMenuItem.Name = "prestamosRechazadosToolStripMenuItem";
             this.prestamosRechazadosToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
             this.prestamosRechazadosToolStripMenuItem.Text = "Solicitudes Rechazadas";
+            this.prestamosRechazadosToolStripMenuItem.Click += new System.EventHandler(this.prestamosRechazadosToolStripMenuItem_Click);
             // 
             // usuariosMorososToolStripMenuItem
             // 
@@ -332,7 +334,7 @@
             this.menuTitle.Location = new System.Drawing.Point(0, 0);
             this.menuTitle.Name = "menuTitle";
             this.menuTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitle.Size = new System.Drawing.Size(1078, 72);
+            this.menuTitle.Size = new System.Drawing.Size(1478, 72);
             this.menuTitle.TabIndex = 1;
             this.menuTitle.Text = "menuTitulo";
             // 
@@ -347,6 +349,15 @@
             this.title.Size = new System.Drawing.Size(235, 40);
             this.title.TabIndex = 2;
             this.title.Text = "PRESSTANK";
+            // 
+            // container
+            // 
+            this.container.Controls.Add(this.monthCalendar);
+            this.container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.container.Location = new System.Drawing.Point(0, 155);
+            this.container.Name = "container";
+            this.container.Size = new System.Drawing.Size(1478, 689);
+            this.container.TabIndex = 3;
             // 
             // txtUsuario
             // 
@@ -376,9 +387,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 744);
+            this.ClientSize = new System.Drawing.Size(1478, 844);
             this.Controls.Add(this.txtNameUser);
             this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.container);
             this.Controls.Add(this.title);
             this.Controls.Add(this.menu);
             this.Controls.Add(this.menuTitle);
@@ -389,6 +401,7 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.container.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,7 +418,7 @@
         private FontAwesome.Sharp.IconMenuItem utils;
         private FontAwesome.Sharp.IconMenuItem requestLoan;
         private FontAwesome.Sharp.IconMenuItem payLoanInstallment;
-        private static System.Windows.Forms.Panel container;
+        private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label txtUsuario;
         private System.Windows.Forms.Label txtNameUser;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
@@ -429,4 +442,3 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
     }
 }
-

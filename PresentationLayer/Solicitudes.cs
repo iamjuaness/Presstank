@@ -15,10 +15,21 @@ namespace PresentationLayer
     public partial class Solicitudes : Form
     {
         BL_Solicitud solicitud = new BL_Solicitud();
-        public Solicitudes(string estado)
+        private Home _home;
+        public Solicitudes(string estado, Home home)
         {
             InitializeComponent();
             CargarSolicitudes(estado);
+            _home = home;
+
+            switch (estado)
+            {
+                case "2":
+                    button1.Visible = false;
+                    button3.Visible = true;
+                    break;
+                
+            }                
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,24 +38,32 @@ namespace PresentationLayer
             {
                 // Obtiene los datos de la fila seleccionada
                 DataGridViewRow selectedRow = solicitudesDataGridView.SelectedRows[0];
+
+                if (!solicitudesDataGridView.Columns.Contains("ID_Solicitud") || selectedRow.Cells["ID_Solicitud"].Value == null)
+                {
+                    MessageBox.Show("Acción no válida.", "No hay información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string idSolicitud = selectedRow.Cells["ID_Solicitud"].Value.ToString();
+
 
                 bool changeSolicitud = solicitud.cambiarEstadoSolicitud(idSolicitud, "2");
 
                 if (changeSolicitud)
                 {
                     solicitudesDataGridView.Refresh();
-                    Solicitudes solicitudes = new Solicitudes("2");
-                    Home.EmbedFormInPanel(solicitudes);
+                    Solicitudes solicitudes = new Solicitudes("2", _home);
+                    _home.EmbedFormInPanel(solicitudes);
 
                 } else
                 {
-                    MessageBox.Show("Error al revisar la solicitud.");
+                    MessageBox.Show("Error al revisar la solicitud.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione una solicitud para revisar.");
+                MessageBox.Show("Seleccione una solicitud para revisar.", "Sin Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -55,14 +74,32 @@ namespace PresentationLayer
             {
                 // Obtiene los datos de la fila seleccionada
                 DataGridViewRow selectedRow = solicitudesDataGridView.SelectedRows[0];
+
+                if (!solicitudesDataGridView.Columns.Contains("ID_Solicitud") || selectedRow.Cells["ID_Solicitud"].Value == null)
+                {
+                    MessageBox.Show("Acción no válida.", "No hay información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string idSolicitud = selectedRow.Cells["ID_Solicitud"].Value.ToString();
 
-                // Aquí procesarías la lógica para cancelar la solicitud.
-                MessageBox.Show("Solicitud " + idSolicitud + " cancelada.");
+                bool changeSolicitud = solicitud.cambiarEstadoSolicitud(idSolicitud, "4");
+
+                if (changeSolicitud)
+                {
+                    solicitudesDataGridView.Refresh();
+                    Solicitudes solicitudes = new Solicitudes("4", _home);
+                    _home.EmbedFormInPanel(solicitudes);
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al revisar la solicitud.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una solicitud antes de cancelar.");
+                MessageBox.Show("Seleccione una solicitud antes de cancelar.", "Sin Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -74,18 +111,32 @@ namespace PresentationLayer
             // Obtener las solicitudes
             List<SolicitudDTO> solicitudes = solicitud.GetSolicitudes(estado);
 
-            // Asignar la lista como el origen de datos
-            solicitudesDataGridView.DataSource = solicitudes;
+            if (solicitudes.Count == 0)
+            {
+                // Crear una columna de mensaje si no hay datos
+                solicitudesDataGridView.Columns.Add("Mensaje", "Mensaje");
+                solicitudesDataGridView.Columns["Mensaje"].Width = 1452;
+                solicitudesDataGridView.Rows.Add("No hay información para mostrar");
+            }
+            else
+            {
+                // Asignar la lista como el origen de datos
+                solicitudesDataGridView.DataSource = solicitudes;
 
-            // El índice de las columnas puede variar según el orden en que se asignan los datos
-            solicitudesDataGridView.Columns["ID_Solicitud"].Width = 150;
-            solicitudesDataGridView.Columns["Fecha_Solicitud"].Width = 150;
-            solicitudesDataGridView.Columns["Monto_Solicitado"].Width = 150;
-            solicitudesDataGridView.Columns["Periodo"].Width = 150;
-            solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 150;
-            solicitudesDataGridView.Columns["Empleado"].Width = 150;
+                // Ajustar el ancho de las columnas
+                solicitudesDataGridView.Columns["ID_Solicitud"].Width = 240;
+                solicitudesDataGridView.Columns["Fecha_Solicitud"].Width = 240;
+                solicitudesDataGridView.Columns["Monto_Solicitado"].Width = 240;
+                solicitudesDataGridView.Columns["Periodo"].Width = 240;
+                solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 240;
+                solicitudesDataGridView.Columns["Empleado"].Width = 240;
+            }
         }
 
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
