@@ -62,7 +62,7 @@ namespace DateLayer
                 {
                     string query = @"
                         SELECT 
-                            Nombre_Usuario,
+                            Nombre_Usuario
                         FROM Usuario
                         WHERE ID_Usuario = @ID_Usuario";
 

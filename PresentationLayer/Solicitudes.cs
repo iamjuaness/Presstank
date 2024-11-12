@@ -123,7 +123,8 @@ namespace PresentationLayer
                     Fecha_Solicitud = DateTime.Parse(selectedRow.Cells["Fecha_Solicitud"].Value.ToString()),
                     Monto_Solicitado = decimal.Parse(selectedRow.Cells["Monto_Solicitado"].Value.ToString()),
                     Periodo = int.Parse(selectedRow.Cells["Periodo"].Value.ToString()),
-                    Estado_Solicitud = selectedRow.Cells["Estado_Solicitud"].Value.ToString()
+                    Estado_Solicitud = selectedRow.Cells["Estado_Solicitud"].Value.ToString(),
+                    Empleado = int.Parse(selectedRow.Cells["Empleado"].Value.ToString())
                 };
 
                 DetalleSolicitud detalleSolicitud = new DetalleSolicitud(solicitudSeleccionada, _home);

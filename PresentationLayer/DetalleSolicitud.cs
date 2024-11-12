@@ -39,7 +39,10 @@ namespace PresentationLayer
             txtPeriodo.Text = solicitud.Periodo.ToString();
             txtEstadoSolicitud.Text = solicitud.Estado_Solicitud;
 
-            Empleado emp = empleado.getEmpleadoByID(Convert.ToInt32(solicitud.Empleado));
+            Console.WriteLine(solicitud.ToString());
+            Console.ReadLine();
+
+            Empleado emp = empleado.getEmpleadoByID(solicitud.Empleado);
             // Cargar los datos del empleado
             txtIdEmpleado.Text = emp.ID_Empleado.ToString();
             txtNombreEmpleado.Text = emp.Nombre;

@@ -52,7 +52,7 @@ namespace DateLayer
             }
         }
 
-        public Empleado GetEmpleadoByID(int idUser)
+        public Empleado GetEmpleadoByIDUsuario(int idUser)
         {
             Empleado empleado = new Empleado();
 
@@ -77,6 +77,49 @@ namespace DateLayer
                             empleado = new Empleado()
                             {
                                 ID_Empleado = Convert.ToInt32(reader["ID_Empleado"]),
+                                Nombre = reader["Nombre"].ToString(),
+                                ID_Sucursal = Convert.ToInt32(reader["ID_Sucursal"]),
+                                ID_Usuario = idUser,
+                                ID_Cargo = Convert.ToInt32(reader["ID_Cargo"])
+                            };
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    empleado = null;
+                }
+
+                return empleado;
+            }
+        }
+
+        public Empleado GetEmpleadoByID(int idEmpleado)
+        {
+            Empleado empleado = new Empleado();
+
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = "select Nombre, ID_Sucursal, ID_Usuario, ID_Cargo from empleado where ID_Empleado = @ID_Empleado";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@ID_Empleado", idEmpleado);
+
+
+                    conn.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            empleado = new Empleado()
+                            {
+                                ID_Empleado = idEmpleado,
                                 Nombre = reader["Nombre"].ToString(),
                                 ID_Sucursal = Convert.ToInt32(reader["ID_Sucursal"]),
                                 ID_Usuario = Convert.ToInt32(reader["ID_Usuario"]),

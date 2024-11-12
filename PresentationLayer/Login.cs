@@ -43,7 +43,7 @@ namespace PresentationLayer
             }
 
             // Obtiene el empleado asociado al usuario encontrado
-            Empleado empleado = new BL_Empleado().getEmpleadoByID(usuario.ID_Usuario);
+            Empleado empleado = new BL_Empleado().getEmpleadoByIDUsuario(usuario.ID_Usuario);
 
             // Obtiene el nivel de acceso del usuario
             var nivel = bL_Nivel.GetNivelByID(usuario.ID_Nivel);
