@@ -18,6 +18,9 @@ namespace BusinessLayer
             return objdl_usuario.getUsuarios();
         }
 
-
+        public Usuario getUsuario(int id)
+        {
+            return objdl_usuario.GetUsuario(id);
+        }
     }
 }

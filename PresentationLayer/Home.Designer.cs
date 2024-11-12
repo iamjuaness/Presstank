@@ -194,6 +194,7 @@
             this.solicitudesAceptadasToolStripMenuItem.Name = "solicitudesAceptadasToolStripMenuItem";
             this.solicitudesAceptadasToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
             this.solicitudesAceptadasToolStripMenuItem.Text = "Solicitudes Aceptadas";
+            this.solicitudesAceptadasToolStripMenuItem.Click += new System.EventHandler(this.solicitudesAceptadasToolStripMenuItem_Click);
             // 
             // prestamosRechazadosToolStripMenuItem
             // 

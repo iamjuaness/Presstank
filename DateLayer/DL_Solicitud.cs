@@ -25,7 +25,7 @@ namespace DateLayer
                     s.Monto_Solicitado,
                     p.CANTIDAD_MESES AS Periodo,
                     e.Estado AS Estado_Solicitud,
-                    emp.Nombre AS Empleado
+                    emp.ID_Empleado AS Empleado
                 FROM 
                     Solicitud s
                 JOIN 
@@ -52,7 +52,7 @@ namespace DateLayer
                                 Monto_Solicitado = Convert.ToDecimal(reader["Monto_Solicitado"]),
                                 Periodo = Convert.ToInt32(reader["Periodo"]),
                                 Estado_Solicitud = reader["Estado_Solicitud"].ToString(),
-                                Empleado = reader["Empleado"].ToString()
+                                Empleado = Convert.ToInt32(reader["Empleado"])
                             });
                         }
                     }

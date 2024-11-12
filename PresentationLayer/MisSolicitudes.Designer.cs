@@ -46,7 +46,7 @@
             this.solicitudesDataGridView.Name = "solicitudesDataGridView";
             this.solicitudesDataGridView.ReadOnly = true;
             this.solicitudesDataGridView.RowHeadersWidth = 62;
-            this.solicitudesDataGridView.Size = new System.Drawing.Size(960, 400);
+            this.solicitudesDataGridView.Size = new System.Drawing.Size(1454, 400);
             this.solicitudesDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -89,19 +89,19 @@
             // 
             this.button2.BackColor = System.Drawing.Color.LightCoral;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(341, 436);
+            this.button2.Location = new System.Drawing.Point(611, 433);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(254, 60);
             this.button2.TabIndex = 2;
             this.button2.Text = "Cancelar solicitud";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MisSolicitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 517);
+            this.ClientSize = new System.Drawing.Size(1478, 517);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.solicitudesDataGridView);
             this.Name = "MisSolicitudes";

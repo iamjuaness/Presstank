@@ -148,6 +148,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetalleSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleSolicitud.Designer.cs">
+      <DependentUpon>DetalleSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     <Compile Include="Solicitudes.Designer.cs">
       <DependentUpon>Solicitudes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DetalleSolicitud.resx">
+      <DependentUpon>DetalleSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

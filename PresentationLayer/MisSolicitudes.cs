@@ -46,10 +46,25 @@ namespace PresentationLayer
             {
                 // Obtiene los datos de la fila seleccionada
                 DataGridViewRow selectedRow = solicitudesDataGridView.SelectedRows[0];
+
+                if (!solicitudesDataGridView.Columns.Contains("ID_Solicitud") || selectedRow.Cells["ID_Solicitud"].Value == null)
+                {
+                    MessageBox.Show("Acción no válida.", "No hay información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string idSolicitud = selectedRow.Cells["ID_Solicitud"].Value.ToString();
 
-                // Aquí procesarías la lógica para cancelar la solicitud.
-                MessageBox.Show("Solicitud " + idSolicitud + " cancelada.");
+                bool changeSolicitud = solicitud.cambiarEstadoSolicitud(idSolicitud, "4");
+
+                if (changeSolicitud)
+                {
+                    solicitudesDataGridView.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Error al revisar la solicitud.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -65,22 +80,25 @@ namespace PresentationLayer
 
             // Obtener las solicitudes
             List<MisSolicitudesDTO> solicitudes = solicitud.GetMisSolicitudes(Home.infoUsuario.ID_Empleado);
-            Console.WriteLine(solicitudes.ToString());
 
-            // Asignar la lista como el origen de datos
-            solicitudesDataGridView.DataSource = solicitudes;
+            if (solicitudes.Count == 0)
+            {
+                // Crear una columna de mensaje si no hay datos
+                solicitudesDataGridView.Columns.Add("Mensaje", "Mensaje");
+                solicitudesDataGridView.Columns["Mensaje"].Width = 1452;
+                solicitudesDataGridView.Rows.Add("No hay información para mostrar");
+            } else
+            {
+                // Asignar la lista como el origen de datos
+                solicitudesDataGridView.DataSource = solicitudes;
 
-            // El índice de las columnas puede variar según el orden en que se asignan los datos
-            solicitudesDataGridView.Columns["ID_Solicitud"].Width = 150;
-            solicitudesDataGridView.Columns["Fecha_Solicitud"].Width = 200;
-            solicitudesDataGridView.Columns["Monto_Solicitado"].Width = 200;
-            solicitudesDataGridView.Columns["Periodo"].Width = 150;
-            solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 200;
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
+                // El índice de las columnas puede variar según el orden en que se asignan los datos
+                solicitudesDataGridView.Columns["ID_Solicitud"].Width = 290;
+                solicitudesDataGridView.Columns["Fecha_Solicitud"].Width = 290;
+                solicitudesDataGridView.Columns["Monto_Solicitado"].Width = 290;
+                solicitudesDataGridView.Columns["Periodo"].Width = 230;
+                solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 290;
+            }
         }
     }
 }

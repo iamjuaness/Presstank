@@ -16,5 +16,10 @@ namespace BusinessLayer
         {
             return objdl_sucursal.GetSucursales();
         }
+
+        public Sucursal GetSucursal(int id)
+        {
+            return objdl_sucursal.GetSucursal(id);
+        }
     }
 }

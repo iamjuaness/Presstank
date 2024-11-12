@@ -102,6 +102,39 @@ namespace PresentationLayer
                 MessageBox.Show("Seleccione una solicitud antes de cancelar.", "Sin Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (solicitudesDataGridView.SelectedRows.Count > 0) // Verificar si hay una fila seleccionada
+            {
+                // Obtener la fila seleccionada
+                DataGridViewRow selectedRow = solicitudesDataGridView.SelectedRows[0];
+
+                // Verificar si la columna "ID_Solicitud" y las otras necesarias existen en el DataGridView
+                if (!solicitudesDataGridView.Columns.Contains("ID_Solicitud") || selectedRow.Cells["ID_Solicitud"].Value == null)
+                {
+                    MessageBox.Show("Acción no válida. No se encontró la columna de solicitud.", "No hay información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Crear un nuevo objeto SolicitudDTO con los valores de la fila seleccionada
+                SolicitudDTO solicitudSeleccionada = new SolicitudDTO
+                {
+                    ID_Solicitud = int.Parse(selectedRow.Cells["ID_Solicitud"].Value.ToString()),
+                    Fecha_Solicitud = DateTime.Parse(selectedRow.Cells["Fecha_Solicitud"].Value.ToString()),
+                    Monto_Solicitado = decimal.Parse(selectedRow.Cells["Monto_Solicitado"].Value.ToString()),
+                    Periodo = int.Parse(selectedRow.Cells["Periodo"].Value.ToString()),
+                    Estado_Solicitud = selectedRow.Cells["Estado_Solicitud"].Value.ToString()
+                };
+
+                DetalleSolicitud detalleSolicitud = new DetalleSolicitud(solicitudSeleccionada, _home);
+                _home.EmbedFormInPanel(detalleSolicitud);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una solicitud primero.", "Sin Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
 
         public void CargarSolicitudes(string estado)
         {
@@ -131,12 +164,6 @@ namespace PresentationLayer
                 solicitudesDataGridView.Columns["Estado_Solicitud"].Width = 240;
                 solicitudesDataGridView.Columns["Empleado"].Width = 240;
             }
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

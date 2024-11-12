@@ -16,5 +16,10 @@ namespace BusinessLayer
         {
             return objdl_cargo.GetCargos();
         }
+
+        public Cargo GetCargo(int id)
+        {
+            return objdl_cargo.GetCargo(id);
+        }
     }
 }

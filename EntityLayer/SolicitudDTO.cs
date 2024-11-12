@@ -13,7 +13,7 @@ namespace EntityLayer
         public decimal Monto_Solicitado { get; set; }
         public int Periodo { get; set; }             // Cantidad de meses del periodo
         public string Estado_Solicitud { get; set; }  // Estado de la solicitud
-        public string Empleado { get; set; }          // Nombre del empleado
+        public int Empleado { get; set; }          // Nombre del empleado
     }
 
 }

@@ -16,7 +16,7 @@ namespace PresentationLayer
     public partial class Home : Form
     {
 
-        private static Usuario usuarioAct;
+        public static Usuario usuarioAct;
         public static Empleado infoUsuario;
 
         BL_Nivel bL_Nivel = new BL_Nivel();
@@ -246,6 +246,12 @@ namespace PresentationLayer
         private void prestamosRechazadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Solicitudes solicitudes = new Solicitudes("4", this);
+            EmbedFormInPanel(solicitudes);
+        }
+
+        private void solicitudesAceptadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Solicitudes solicitudes = new Solicitudes("3", this);
             EmbedFormInPanel(solicitudes);
         }
     }
