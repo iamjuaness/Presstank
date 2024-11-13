@@ -31,6 +31,9 @@
             this.menu = new System.Windows.Forms.MenuStrip();
             this.gestionUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            this.verUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
             this.transactions = new FontAwesome.Sharp.IconMenuItem();
             this.requestLoan = new FontAwesome.Sharp.IconMenuItem();
@@ -59,6 +62,26 @@
             this.container = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
+            this.crearUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem5 = new FontAwesome.Sharp.IconMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearCargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verCargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarCargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarCargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.holaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMunicipiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarMunicipiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarMunicipiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearPeriodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verPeriodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarPeriodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarPeriodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.container.SuspendLayout();
             this.SuspendLayout();
@@ -85,37 +108,68 @@
             // 
             this.gestionUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iconMenuItem2,
+            this.iconMenuItem5,
+            this.iconMenuItem4,
+            this.iconMenuItem1,
             this.iconMenuItem3});
-            this.gestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.UserGear;
+            this.gestionUsuarios.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.gestionUsuarios.IconColor = System.Drawing.Color.Black;
             this.gestionUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.gestionUsuarios.IconSize = 50;
             this.gestionUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.gestionUsuarios.Name = "gestionUsuarios";
-            this.gestionUsuarios.Size = new System.Drawing.Size(184, 79);
-            this.gestionUsuarios.Text = "Gestion de usuarios";
+            this.gestionUsuarios.Size = new System.Drawing.Size(195, 79);
+            this.gestionUsuarios.Text = "Gestion de entidades";
             this.gestionUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // iconMenuItem2
             // 
-            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
+            this.iconMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearUsuariosToolStripMenuItem,
+            this.verUsuariosToolStripMenuItem,
+            this.actualizarUsuariosToolStripMenuItem,
+            this.eliminaToolStripMenuItem});
+            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.UserGear;
             this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
             this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconMenuItem2.IconSize = 40;
             this.iconMenuItem2.Name = "iconMenuItem2";
-            this.iconMenuItem2.Size = new System.Drawing.Size(256, 34);
-            this.iconMenuItem2.Text = "Solicitar Préstamo";
+            this.iconMenuItem2.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem2.Text = "Gestión Usuarios";
             this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // verUsuariosToolStripMenuItem
+            // 
+            this.verUsuariosToolStripMenuItem.Name = "verUsuariosToolStripMenuItem";
+            this.verUsuariosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.verUsuariosToolStripMenuItem.Text = "Ver Usuarios";
+            // 
+            // eliminaToolStripMenuItem
+            // 
+            this.eliminaToolStripMenuItem.Name = "eliminaToolStripMenuItem";
+            this.eliminaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.eliminaToolStripMenuItem.Text = "Eliminar Usuarios";
+            // 
+            // actualizarUsuariosToolStripMenuItem
+            // 
+            this.actualizarUsuariosToolStripMenuItem.Name = "actualizarUsuariosToolStripMenuItem";
+            this.actualizarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.actualizarUsuariosToolStripMenuItem.Text = "Actualizar Usuarios";
             // 
             // iconMenuItem3
             // 
-            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.CreditCardAlt;
+            this.iconMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearPeriodosToolStripMenuItem,
+            this.verPeriodosToolStripMenuItem,
+            this.actualizarPeriodosToolStripMenuItem,
+            this.eliminarPeriodosToolStripMenuItem});
+            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
             this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
             this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconMenuItem3.IconSize = 40;
             this.iconMenuItem3.Name = "iconMenuItem3";
-            this.iconMenuItem3.Size = new System.Drawing.Size(256, 34);
-            this.iconMenuItem3.Text = "Pagar Cuota";
+            this.iconMenuItem3.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem3.Text = "Gestión Periodos";
             this.iconMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // transactions
@@ -384,6 +438,156 @@
             this.txtNameUser.TabIndex = 5;
             this.txtNameUser.Text = "user";
             // 
+            // crearUsuariosToolStripMenuItem
+            // 
+            this.crearUsuariosToolStripMenuItem.Name = "crearUsuariosToolStripMenuItem";
+            this.crearUsuariosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.crearUsuariosToolStripMenuItem.Text = "Crear Usuarios";
+            // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.holaToolStripMenuItem,
+            this.verMunicipiosToolStripMenuItem,
+            this.actualizarMunicipiosToolStripMenuItem,
+            this.eliminarMunicipiosToolStripMenuItem});
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.HouseChimneyUser;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.IconSize = 40;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem1.Text = "Gestión Municipios";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // iconMenuItem4
+            // 
+            this.iconMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearCargoToolStripMenuItem,
+            this.verCargosToolStripMenuItem,
+            this.actualizarCargosToolStripMenuItem,
+            this.eliminarCargosToolStripMenuItem});
+            this.iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.BagShopping;
+            this.iconMenuItem4.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem4.IconSize = 40;
+            this.iconMenuItem4.Name = "iconMenuItem4";
+            this.iconMenuItem4.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem4.Text = "Gestión Cargos";
+            this.iconMenuItem4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // iconMenuItem5
+            // 
+            this.iconMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem13,
+            this.toolStripMenuItem14});
+            this.iconMenuItem5.IconChar = FontAwesome.Sharp.IconChar.Hammer;
+            this.iconMenuItem5.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem5.IconSize = 40;
+            this.iconMenuItem5.Name = "iconMenuItem5";
+            this.iconMenuItem5.Size = new System.Drawing.Size(270, 34);
+            this.iconMenuItem5.Text = "Gestión Sucursales";
+            this.iconMenuItem5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(277, 34);
+            this.toolStripMenuItem11.Text = "Crear Sucursales";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(277, 34);
+            this.toolStripMenuItem12.Text = "Ver Sucursales";
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(277, 34);
+            this.toolStripMenuItem13.Text = "Actualizar Sucursales";
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(277, 34);
+            this.toolStripMenuItem14.Text = "Eliminar Sucursales";
+            // 
+            // crearCargoToolStripMenuItem
+            // 
+            this.crearCargoToolStripMenuItem.Name = "crearCargoToolStripMenuItem";
+            this.crearCargoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.crearCargoToolStripMenuItem.Text = "Crear Cargos";
+            // 
+            // verCargosToolStripMenuItem
+            // 
+            this.verCargosToolStripMenuItem.Name = "verCargosToolStripMenuItem";
+            this.verCargosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.verCargosToolStripMenuItem.Text = "Ver Cargos";
+            // 
+            // actualizarCargosToolStripMenuItem
+            // 
+            this.actualizarCargosToolStripMenuItem.Name = "actualizarCargosToolStripMenuItem";
+            this.actualizarCargosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.actualizarCargosToolStripMenuItem.Text = "Actualizar Cargos";
+            // 
+            // eliminarCargosToolStripMenuItem
+            // 
+            this.eliminarCargosToolStripMenuItem.Name = "eliminarCargosToolStripMenuItem";
+            this.eliminarCargosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.eliminarCargosToolStripMenuItem.Text = "Eliminar Cargos";
+            // 
+            // holaToolStripMenuItem
+            // 
+            this.holaToolStripMenuItem.Name = "holaToolStripMenuItem";
+            this.holaToolStripMenuItem.Size = new System.Drawing.Size(281, 34);
+            this.holaToolStripMenuItem.Text = "Crear Municipios";
+            // 
+            // verMunicipiosToolStripMenuItem
+            // 
+            this.verMunicipiosToolStripMenuItem.Name = "verMunicipiosToolStripMenuItem";
+            this.verMunicipiosToolStripMenuItem.Size = new System.Drawing.Size(281, 34);
+            this.verMunicipiosToolStripMenuItem.Text = "Ver Municipios";
+            // 
+            // actualizarMunicipiosToolStripMenuItem
+            // 
+            this.actualizarMunicipiosToolStripMenuItem.Name = "actualizarMunicipiosToolStripMenuItem";
+            this.actualizarMunicipiosToolStripMenuItem.Size = new System.Drawing.Size(281, 34);
+            this.actualizarMunicipiosToolStripMenuItem.Text = "Actualizar Municipios";
+            // 
+            // eliminarMunicipiosToolStripMenuItem
+            // 
+            this.eliminarMunicipiosToolStripMenuItem.Name = "eliminarMunicipiosToolStripMenuItem";
+            this.eliminarMunicipiosToolStripMenuItem.Size = new System.Drawing.Size(281, 34);
+            this.eliminarMunicipiosToolStripMenuItem.Text = "Eliminar Municipios";
+            // 
+            // crearPeriodosToolStripMenuItem
+            // 
+            this.crearPeriodosToolStripMenuItem.Name = "crearPeriodosToolStripMenuItem";
+            this.crearPeriodosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.crearPeriodosToolStripMenuItem.Text = "Crear Periodos";
+            // 
+            // verPeriodosToolStripMenuItem
+            // 
+            this.verPeriodosToolStripMenuItem.Name = "verPeriodosToolStripMenuItem";
+            this.verPeriodosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.verPeriodosToolStripMenuItem.Text = "Ver Periodos";
+            // 
+            // actualizarPeriodosToolStripMenuItem
+            // 
+            this.actualizarPeriodosToolStripMenuItem.Name = "actualizarPeriodosToolStripMenuItem";
+            this.actualizarPeriodosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.actualizarPeriodosToolStripMenuItem.Text = "Actualizar Periodos";
+            // 
+            // eliminarPeriodosToolStripMenuItem
+            // 
+            this.eliminarPeriodosToolStripMenuItem.Name = "eliminarPeriodosToolStripMenuItem";
+            this.eliminarPeriodosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.eliminarPeriodosToolStripMenuItem.Text = "Eliminar Periodos";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -441,5 +645,28 @@
         private FontAwesome.Sharp.IconMenuItem gestionUsuarios;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem verUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearUsuariosToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem crearCargoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verCargosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarCargosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarCargosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem holaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verMunicipiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarMunicipiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarMunicipiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearPeriodosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verPeriodosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarPeriodosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarPeriodosToolStripMenuItem;
     }
 }
