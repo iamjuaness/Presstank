@@ -91,6 +91,7 @@ El proyecto consiste en el desarrollo de un sistema de préstamos de dinero para
 - `Microsoft Visual Studio 2022`:  Microsoft Visual Studio 2022 es un entorno de desarrollo integrado avanzado y versátil.
 - `C#`: C# es un lenguaje de programación orientado a objetos, desarrollado por Microsoft.
 - `SQL Server`: SQL Server es un sistema de gestión de bases de datos relacional desarrollado por Microsoft.
+- `HTML Help WorkShop`: HTML Help Workshop es una herramienta de Microsoft para crear archivos de ayuda (.chm) para aplicaciones Windows.
 
 ## ✔️ Tecnologías utilizadas en el Frontend
 - `.NET Framework`: .NET Framework es una plataforma de desarrollo para crear y ejecutar aplicaciones Windows.
