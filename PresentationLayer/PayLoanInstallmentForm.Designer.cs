@@ -121,7 +121,7 @@ namespace PresentationLayer
             // 
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(757, 0);
+            this.label1.Location = new System.Drawing.Point(1157, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(321, 587);
             this.label1.TabIndex = 10;
@@ -133,7 +133,7 @@ namespace PresentationLayer
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 135;
-            this.iconPictureBox1.Location = new System.Drawing.Point(857, 147);
+            this.iconPictureBox1.Location = new System.Drawing.Point(1264, 177);
             this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(135, 150);
@@ -146,7 +146,7 @@ namespace PresentationLayer
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(813, 334);
+            this.label2.Location = new System.Drawing.Point(1220, 364);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(235, 40);
             this.label2.TabIndex = 12;
@@ -157,7 +157,7 @@ namespace PresentationLayer
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1078, 587);
+            this.ClientSize = new System.Drawing.Size(1478, 587);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);

@@ -60,7 +60,7 @@ namespace DateLayer
             {
                 try
                 {
-                    string query = "select ID_Empleado, Nombre, ID_Sucursal, ID_Usuario, ID_Cargo from empleado where ID_Usuario = @ID_Usuario";
+                    string query = "select ID_Empleado, Nombre, ID_Sucursal, ID_Usuario, ID_Cargo, Correo from empleado where ID_Usuario = @ID_Usuario";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.CommandType = CommandType.Text;
@@ -78,6 +78,7 @@ namespace DateLayer
                             {
                                 ID_Empleado = Convert.ToInt32(reader["ID_Empleado"]),
                                 Nombre = reader["Nombre"].ToString(),
+                                Correo = reader["Correo"].ToString(),
                                 ID_Sucursal = Convert.ToInt32(reader["ID_Sucursal"]),
                                 ID_Usuario = idUser,
                                 ID_Cargo = Convert.ToInt32(reader["ID_Cargo"])
@@ -103,7 +104,7 @@ namespace DateLayer
             {
                 try
                 {
-                    string query = "select Nombre, ID_Sucursal, ID_Usuario, ID_Cargo from empleado where ID_Empleado = @ID_Empleado";
+                    string query = "select Nombre, ID_Sucursal, ID_Usuario, ID_Cargo, Correo from empleado where ID_Empleado = @ID_Empleado";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.CommandType = CommandType.Text;
@@ -120,6 +121,7 @@ namespace DateLayer
                             empleado = new Empleado()
                             {
                                 ID_Empleado = idEmpleado,
+                                Correo = reader["Correo"].ToString(),
                                 Nombre = reader["Nombre"].ToString(),
                                 ID_Sucursal = Convert.ToInt32(reader["ID_Sucursal"]),
                                 ID_Usuario = Convert.ToInt32(reader["ID_Usuario"]),

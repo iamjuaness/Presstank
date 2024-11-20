@@ -83,6 +83,8 @@ namespace PresentationLayer
             else
             {
                 txtLimite.BackColor = System.Drawing.Color.Red; // Si el monto es mayor al límite, el texto será rojo
+                btnAceptar.Enabled = false;
+                btnAceptar.BackColor = System.Drawing.Color.Gray;
             }
         }
 
@@ -98,7 +100,89 @@ namespace PresentationLayer
 
                 if (changeSolicitud)
                 {
+                    EmailService emailService = new EmailService();
+                    Empleado emp1 = empleado.getEmpleadoByID(solicitud.Empleado);
+                    Decimal nuevoMonto = 0;
+
+                    switch (solicitud.Periodo.ToString())
+                    {
+                        case "24":
+                            nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.07);
+                            break;
+                        case "36":
+                            nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.075);
+                            break;
+                        case "48":
+                            nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.08);
+                            break;
+                        case "60":
+                            nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.083);
+                            break;
+                        case "72":
+                            nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.086);
+                            break;
+                    }
+
+                    bool monto = solicitudBL.cambiarNuevoMonto(nuevoMonto, solicitud.ID_Solicitud);
+
+                    if (monto)
+                    {
+                        Console.WriteLine("Se actualizó el monto solicitado correctamente");
+                    }
+
+                    string htmlBody = emailService.CreateHtmlBody($"Apreciado {emp1.Nombre}", $"<p>Su solicitud ha sido aprobada. En {solicitud.Periodo} cuotas de {(int)Math.Round(nuevoMonto/solicitud.Periodo)} cada una.</p>");
+                    bool success = emailService.SendEmail(emp1.Correo, "Prestamo aprobado", htmlBody);
+
+                    // Verificar si se envió correctamente
+                    if (success)
+                    {
+                        Console.WriteLine("Correo enviado exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hubo un problema al enviar el correo.");
+                    }
                     Solicitudes solicitudes = new Solicitudes("3", _home);
+                    _home.EmbedFormInPanel(solicitudes);
+                }
+                else
+                {
+                    MessageBox.Show("Error al revisar la solicitud.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una solicitud antes de aprobar.", "Sin Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnRechazar_Click(object sender, EventArgs e)
+        {
+            if (solicitud.ID_Solicitud > 0)
+            {
+
+                string idSolicitud = solicitud.ID_Solicitud.ToString();
+
+                bool changeSolicitud = solicitudBL.cambiarEstadoSolicitud(idSolicitud, "4");
+
+                if (changeSolicitud)
+                {
+                    EmailService emailService = new EmailService();
+                    Empleado emp1 = empleado.getEmpleadoByID(solicitud.Empleado);
+
+                    string htmlBody = emailService.CreateHtmlBody($"Apreciado {emp1.Nombre}", $"<p>Su solicitud ha sido rechazada, puede hacer una nueva solicitud si lo considera necesario</p>");
+                    bool success = emailService.SendEmail(emp1.Correo, "Prestamo rechazado", htmlBody);
+
+                    // Verificar si se envió correctamente
+                    if (success)
+                    {
+                        Console.WriteLine("Correo enviado exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hubo un problema al enviar el correo.");
+                    }
+                    Solicitudes solicitudes = new Solicitudes("4", _home);
                     _home.EmbedFormInPanel(solicitudes);
                 }
                 else
@@ -110,11 +194,6 @@ namespace PresentationLayer
             {
                 MessageBox.Show("Seleccione una solicitud antes de cancelar.", "Sin Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void btnRechazar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

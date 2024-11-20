@@ -21,5 +21,15 @@ namespace BusinessLayer
         {
             return objdl_sucursal.GetSucursal(id);
         }
+
+        public Boolean EliminarSucursal(string id)
+        {
+            return objdl_sucursal.DeleteSucursal(id);
+        }
+
+        public Boolean crearSucursal(Sucursal sucursal)
+        {
+            return objdl_sucursal.CreateSucursal(sucursal);
+        }
     }
 }

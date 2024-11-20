@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DL_Cargo.cs" />
     <Compile Include="DL_Empleado.cs" />
+    <Compile Include="DL_Municipio.cs" />
     <Compile Include="DL_Nivel.cs" />
     <Compile Include="DL_Solicitud.cs" />
     <Compile Include="DL_Sucursal.cs" />

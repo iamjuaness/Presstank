@@ -31,5 +31,9 @@ namespace BusinessLayer
         {
             return solicitud.cambiarEstadoSolicitud(idSolicitud, estado);
         }
+        public Boolean cambiarNuevoMonto(Decimal nuevoMonto, int id)
+        {
+            return solicitud.cambiarNuevoMonto(nuevoMonto, id);
+        }
     }
 }

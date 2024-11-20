@@ -102,13 +102,15 @@ namespace PresentationLayer
                 int idSucursal = (int)cmbIDSucursal.SelectedValue;
                 int idCargo = (int)cmbIDCargo.SelectedValue;
                 string nombreUsuario = txtNombreUsuario.Text;
+                string correo = txtCorreoUsuario.Text;
                 string contrasenia = txtContrasenia.Text;
                 int idNivel = (int)cmbIDNivel.SelectedValue;
 
                 // Validar que los campos requeridos no estén vacíos
                 if (idEmpleado <= 0 || string.IsNullOrWhiteSpace(nombre) ||
                     string.IsNullOrWhiteSpace(nombreUsuario) ||
-                    string.IsNullOrWhiteSpace(contrasenia) || idNivel <= 0)
+                    string.IsNullOrWhiteSpace(contrasenia) || 
+                    string.IsNullOrWhiteSpace(correo) || idNivel <= 0)
                 {
                     MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -119,15 +121,17 @@ namespace PresentationLayer
                 {
                     ID_Empleado = idEmpleado,
                     Nombre = nombre,
+                    Correo = correo,
                     ID_Sucursal = idSucursal,
                     ID_Cargo = idCargo
                 };
 
                 // Crear un objeto usuario con la información capturada
-                var usuario = new Usuario
+                var usuario = new Usuario()
                 {
                     Nombre_Usuario = nombreUsuario,
                     Contrasenia = contrasenia,
+                    Correo = correo,
                     ID_Nivel = idNivel
                 };
 
@@ -139,6 +143,22 @@ namespace PresentationLayer
                 {
                     MessageBox.Show("Empleado y usuario registrados exitosamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields(); // Limpiar los campos después del registro
+
+                    EmailService emailService = new EmailService();
+
+                    string htmlBody = emailService.CreateHtmlBody($"¡Bienvenido {nombre}!", "<p>Gracias por registrarte en nuestro sistema.</p>");
+                    // Enviar el correo
+                    bool success = emailService.SendEmail(correo, "Registro Exitoso", htmlBody);
+
+                    // Verificar si se envió correctamente
+                    if (success)
+                    {
+                        Console.WriteLine("Correo enviado exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hubo un problema al enviar el correo.");
+                    }
 
                     Login login = new Login();
 

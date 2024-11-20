@@ -213,6 +213,47 @@ namespace DateLayer
 
                 return true;
             }
+
+        }
+
+        public Boolean cambiarNuevoMonto(Decimal nuevoMonto, int id)
+        {
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        UPDATE solicitud
+                        SET Monto_Solicitad = @Monto_Solicitad
+                        WHERE ID_Solicitud = @ID_Solicitud
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    cmd.Parameters.AddWithValue("@Monto_Solicitad", nuevoMonto);
+                    cmd.Parameters.AddWithValue("ID_Solicitud", id);
+
+                    // Open the database connection
+                    conn.Open();
+
+                    // Execute the command (ExecuteNonQuery returns the number of affected rows)
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // If the insertion failed (no rows affected), return false
+                    if (rowsAffected == 0)
+                    {
+                        return false;
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+
+                return true;
+            }
         }
     }
 }

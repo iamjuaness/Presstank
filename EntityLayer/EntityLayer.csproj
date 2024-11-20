@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bitacora.cs" />
     <Compile Include="Cargo.cs" />
+    <Compile Include="EmailService.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Estado_Solicitud.cs" />
     <Compile Include="MisSolicitudesDTO.cs" />

@@ -49,7 +49,7 @@ namespace PresentationLayer
                     case "Administrador(admin)":
                         EnableAdminOptions();
                         break;
-                    case "Paramétricos(tesoreria)":
+                    case "Paramétrico(tesoreria)":
                         EnableParametricOptions();
                         break;
                     case "Esporádicos(empleado)":
@@ -253,6 +253,12 @@ namespace PresentationLayer
         {
             Solicitudes solicitudes = new Solicitudes("3", this);
             EmbedFormInPanel(solicitudes);
+        }
+
+        private void iconMenuItem5_Click(object sender, EventArgs e)
+        {
+            ManageSucursalForm manageSucursalForm = new ManageSucursalForm();
+            EmbedFormInPanel(manageSucursalForm);
         }
     }
 }

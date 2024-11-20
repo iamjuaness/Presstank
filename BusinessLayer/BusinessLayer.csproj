@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BL_Cargo.cs" />
     <Compile Include="BL_Empleado.cs" />
+    <Compile Include="BL_Municipio.cs" />
     <Compile Include="BL_Nivel.cs" />
     <Compile Include="BL_Solicitud.cs" />
     <Compile Include="BL_Sucursal.cs" />

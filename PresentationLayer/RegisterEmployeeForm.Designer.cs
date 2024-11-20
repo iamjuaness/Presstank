@@ -46,6 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtCorreoUsuario = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,7 +129,7 @@
             this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuario.Location = new System.Drawing.Point(29, 296);
             this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(187, 33);
+            this.lblNombreUsuario.Size = new System.Drawing.Size(202, 33);
             this.lblNombreUsuario.TabIndex = 10;
             this.lblNombreUsuario.Text = "Nombre Usuario:";
             // 
@@ -142,7 +144,7 @@
             // 
             this.lblContrasenia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasenia.Location = new System.Drawing.Point(29, 356);
+            this.lblContrasenia.Location = new System.Drawing.Point(29, 411);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(155, 33);
             this.lblContrasenia.TabIndex = 12;
@@ -150,7 +152,7 @@
             // 
             // txtContrasenia
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(264, 356);
+            this.txtContrasenia.Location = new System.Drawing.Point(264, 411);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(200, 26);
             this.txtContrasenia.TabIndex = 13;
@@ -160,7 +162,7 @@
             // 
             this.lblIDNivel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblIDNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDNivel.Location = new System.Drawing.Point(29, 412);
+            this.lblIDNivel.Location = new System.Drawing.Point(29, 467);
             this.lblIDNivel.Name = "lblIDNivel";
             this.lblIDNivel.Size = new System.Drawing.Size(126, 33);
             this.lblIDNivel.TabIndex = 14;
@@ -169,7 +171,7 @@
             // cmbIDNivel
             // 
             this.cmbIDNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbIDNivel.Location = new System.Drawing.Point(264, 412);
+            this.cmbIDNivel.Location = new System.Drawing.Point(264, 467);
             this.cmbIDNivel.Name = "cmbIDNivel";
             this.cmbIDNivel.Size = new System.Drawing.Size(200, 28);
             this.cmbIDNivel.TabIndex = 15;
@@ -185,7 +187,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.White;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 32;
-            this.btnGuardar.Location = new System.Drawing.Point(33, 478);
+            this.btnGuardar.Location = new System.Drawing.Point(33, 569);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(183, 52);
             this.btnGuardar.TabIndex = 16;
@@ -206,7 +208,7 @@
             this.btnCancelar.IconColor = System.Drawing.Color.White;
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 32;
-            this.btnCancelar.Location = new System.Drawing.Point(294, 478);
+            this.btnCancelar.Location = new System.Drawing.Point(294, 569);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(170, 52);
             this.btnCancelar.TabIndex = 17;
@@ -222,7 +224,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Location = new System.Drawing.Point(538, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 560);
+            this.label1.Size = new System.Drawing.Size(300, 676);
             this.label1.TabIndex = 18;
             // 
             // iconPictureBox1
@@ -250,13 +252,32 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "PRESSTANK";
             // 
+            // txtCorreoUsuario
+            // 
+            this.txtCorreoUsuario.Location = new System.Drawing.Point(264, 360);
+            this.txtCorreoUsuario.Name = "txtCorreoUsuario";
+            this.txtCorreoUsuario.Size = new System.Drawing.Size(200, 26);
+            this.txtCorreoUsuario.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(29, 360);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(202, 33);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Correo:";
+            // 
             // RegisterEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(838, 560);
+            this.ClientSize = new System.Drawing.Size(838, 676);
+            this.Controls.Add(this.txtCorreoUsuario);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -308,5 +329,7 @@
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCorreoUsuario;
+        private System.Windows.Forms.Label label3;
     }
 }
