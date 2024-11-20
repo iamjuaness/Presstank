@@ -16,6 +16,7 @@ namespace PresentationLayer
         private BL_Solicitud solicitudBL = new BL_Solicitud();
         private BL_Usuario usuario = new BL_Usuario();
         private BL_Empleado empleado = new BL_Empleado();
+        private BL_Prestamo prestamo = new BL_Prestamo();
         private decimal limite = 0;
         private string mensajeLimite = "";
         private Home _home;
@@ -123,12 +124,8 @@ namespace PresentationLayer
                             break;
                     }
 
-                    bool monto = solicitudBL.cambiarNuevoMonto(nuevoMonto, solicitud.ID_Solicitud);
+                    bool crearPrestamo = CrearPrestamo(nuevoMonto, solicitud, emp1);
 
-                    if (monto)
-                    {
-                        Console.WriteLine("Se actualizó el monto solicitado correctamente");
-                    }
 
                     string htmlBody = emailService.CreateHtmlBody($"Apreciado {emp1.Nombre}", $"<p>Su solicitud ha sido aprobada. En {solicitud.Periodo} cuotas de {(int)Math.Round(nuevoMonto/solicitud.Periodo)} cada una.</p>");
                     bool success = emailService.SendEmail(emp1.Correo, "Prestamo aprobado", htmlBody);
@@ -156,6 +153,37 @@ namespace PresentationLayer
             }
         }
 
+        private Boolean CrearPrestamo(Decimal nuevoMonto, SolicitudDTO solicitud, Empleado empleado)
+        {
+            // Obtiene la fecha actual
+            DateTime fechaActual = DateTime.Now;
+
+            // Calcula el mes siguiente
+            int mesSiguiente = fechaActual.Month == 12 ? 1 : fechaActual.Month + 1;
+
+            // Calcula el año, considerando el cambio de año si el mes actual es diciembre
+            int anioSiguiente = fechaActual.Month == 12 ? fechaActual.Year + 1 : fechaActual.Year;
+
+            // Define la fecha del día 3 del mes siguiente
+            DateTime fechaDesembolso = new DateTime(anioSiguiente, mesSiguiente, 3);
+
+            // Calcula la fecha de vencimiento sumando las cuotas a la fecha de desembolso
+            DateTime fechaVencimiento = fechaDesembolso.AddMonths(solicitud.Periodo);
+
+            var newPrestamo = new Prestamo()
+            {
+                ID_Solicitud = solicitud.ID_Solicitud,
+                Cantidad_Cuotas = solicitud.Periodo,
+                Monto_Desembolsado = solicitud.Monto_Solicitado,
+                Monto_Restante = nuevoMonto,
+                ID_Empleado = empleado.ID_Empleado,
+                Fecha_Desembolso = fechaDesembolso,
+                Fecha_Vencimiento = fechaVencimiento
+            };
+
+            return prestamo.CreatePrestamo(newPrestamo);
+
+        }
         private void btnRechazar_Click(object sender, EventArgs e)
         {
             if (solicitud.ID_Solicitud > 0)
