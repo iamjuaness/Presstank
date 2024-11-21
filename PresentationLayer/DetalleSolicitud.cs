@@ -104,27 +104,33 @@ namespace PresentationLayer
                     EmailService emailService = new EmailService();
                     Empleado emp1 = empleado.getEmpleadoByID(solicitud.Empleado);
                     Decimal nuevoMonto = 0;
+                    Decimal interes = 0;
 
                     switch (solicitud.Periodo.ToString())
                     {
                         case "24":
                             nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.07);
+                            interes = Convert.ToDecimal(0.07);
                             break;
                         case "36":
                             nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.075);
+                            interes = Convert.ToDecimal(0.075);
                             break;
                         case "48":
                             nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.08);
+                            interes = Convert.ToDecimal(0.08);
                             break;
                         case "60":
                             nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.083);
+                            interes = Convert.ToDecimal(0.083);
                             break;
                         case "72":
                             nuevoMonto = Convert.ToDecimal(Convert.ToDouble(solicitud.Monto_Solicitado) * 1.086);
+                            interes = Convert.ToDecimal(0.086);
                             break;
                     }
 
-                    bool crearPrestamo = CrearPrestamo(nuevoMonto, solicitud, emp1);
+                    bool crearPrestamo = CrearPrestamo(nuevoMonto, interes, solicitud, emp1);
 
 
                     string htmlBody = emailService.CreateHtmlBody($"Apreciado {emp1.Nombre}", $"<p>Su solicitud ha sido aprobada. En {solicitud.Periodo} cuotas de {(int)Math.Round(nuevoMonto/solicitud.Periodo)} cada una.</p>");
@@ -153,7 +159,7 @@ namespace PresentationLayer
             }
         }
 
-        private Boolean CrearPrestamo(Decimal nuevoMonto, SolicitudDTO solicitud, Empleado empleado)
+        private Boolean CrearPrestamo(Decimal nuevoMonto, Decimal interes, SolicitudDTO solicitud, Empleado empleado)
         {
             // Obtiene la fecha actual
             DateTime fechaActual = DateTime.Now;
@@ -178,7 +184,9 @@ namespace PresentationLayer
                 Monto_Restante = nuevoMonto,
                 ID_Empleado = empleado.ID_Empleado,
                 Fecha_Desembolso = fechaDesembolso,
-                Fecha_Vencimiento = fechaVencimiento
+                Fecha_Vencimiento = fechaVencimiento,
+                Total_Cuotas = solicitud.Periodo,
+                Interes = interes
             };
 
             return prestamo.CreatePrestamo(newPrestamo);

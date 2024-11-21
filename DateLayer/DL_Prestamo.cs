@@ -25,7 +25,9 @@ namespace DateLayer
                                         ID_Prestamo, 
                                         Cantidad_Cuotas,
                                         Monto_Restante,
-                                        Fecha_Vencimiento
+                                        Fecha_Vencimiento,
+                                        Monto_Desembolsado,
+                                        Total_Cuotas
                                    FROM Prestamo
                                    WHERE ID_Empleado = @ID_Empleado";
 
@@ -42,8 +44,10 @@ namespace DateLayer
                             {
                                 ID_Prestamo = Convert.ToInt32(reader["ID_Prestamo"]),
                                 Fecha_Vencimiento = Convert.ToDateTime(reader["Fecha_Vencimiento"]),
-                                Cantidad_Cuotas = Convert.ToInt32(reader["Cantidad_Cuotas"]),
-                                Monto_Restante = Convert.ToDecimal(reader["Monto_Restante"])
+                                Cuotas_Restantes = Convert.ToInt32(reader["Cantidad_Cuotas"]),
+                                Monto_Restante = Convert.ToDecimal(reader["Monto_Restante"]),
+                                Prestamo = Convert.ToDecimal(reader["Monto_Desembolsado"]),
+                                Total_Cuotas = Convert.ToInt32(reader["Total_Cuotas"])
                             });
                         }
                     }
@@ -66,8 +70,8 @@ namespace DateLayer
                 {
                     // Consulta SQL para insertar una nueva sucursal
                     string query = @"
-                                INSERT INTO Prestamo (Monto_Desembolsado, Fecha_Desembolso, ID_Empleado, ID_Solicitud, Cantidad_Cuotas, Monto_Restante, Fecha_Vencimiento)
-                                VALUES (@Monto_Desembolsado, @Fecha_Desembolso, @ID_Empleado, @ID_Solicitud, @Cantidad_Cuotas, @Monto_Restante, @Fecha_Vencimiento)";
+                                INSERT INTO Prestamo (Monto_Desembolsado, Interes, Fecha_Desembolso, ID_Empleado, ID_Solicitud, Cantidad_Cuotas, Monto_Restante, Fecha_Vencimiento, Total_Cuotas)
+                                VALUES (@Monto_Desembolsado, @Interes, @Fecha_Desembolso, @ID_Empleado, @ID_Solicitud, @Cantidad_Cuotas, @Monto_Restante, @Fecha_Vencimiento, @Total_Cuotas)";
 
                     // Crear el comando SQL dentro de un bloque 'using'
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -80,6 +84,8 @@ namespace DateLayer
                         cmd.Parameters.AddWithValue("@Cantidad_Cuotas", prestamo.Cantidad_Cuotas);
                         cmd.Parameters.AddWithValue("@Monto_Restante", prestamo.Monto_Restante);
                         cmd.Parameters.AddWithValue("@Fecha_Vencimiento", prestamo.Fecha_Vencimiento);
+                        cmd.Parameters.AddWithValue("@Total_Cuotas", prestamo.Total_Cuotas);
+                        cmd.Parameters.AddWithValue("@Interes", prestamo.Interes);
 
                         // Abrir la conexión
                         conn.Open();
@@ -115,7 +121,8 @@ namespace DateLayer
                                     ID_Solicitud,
                                     Cantidad_Cuotas,
                                     Monto_Restante,
-                                    ID_Empleado
+                                    ID_Empleado,
+                                    Interes
                                FROM Prestamo 
                                WHERE ID_Prestamo = @ID_Prestamo";
 
@@ -137,7 +144,8 @@ namespace DateLayer
                                 Fecha_Desembolso = Convert.ToDateTime(reader["Fecha_Desembolso"]),
                                 ID_Solicitud = Convert.ToInt32(reader["ID_Solicitud"]),
                                 Cantidad_Cuotas = Convert.ToInt32(reader["Cantidad_Cuotas"]),
-                                Monto_Restante = Convert.ToDecimal(reader["Monto_Restante"])
+                                Monto_Restante = Convert.ToDecimal(reader["Monto_Restante"]),
+                                Interes = Convert.ToDecimal(reader["Interes"])
                             };
                         }
                     }
@@ -148,6 +156,44 @@ namespace DateLayer
                 }
 
                 return prestamo;
+            }
+        }
+
+        public Boolean ModifyCuotaAndMontoRestante(Decimal nuevoMonto, int idPrestamo)
+        {
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Consulta SQL para insertar una nueva sucursal
+                    string query = @"
+                                UPDATE Prestamo
+                                SET Monto_Restante = @Monto_Restante, Cantidad_Cuotas = (Cantidad_Cuotas - 1)
+                                WHERE ID_Prestamo = @ID_Prestamo";
+
+                    // Crear el comando SQL dentro de un bloque 'using'
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Agregar parámetros al comando
+                        cmd.Parameters.AddWithValue("@Monto_Restante", nuevoMonto);
+                        cmd.Parameters.AddWithValue("@ID_Prestamo", idPrestamo);
+
+                        // Abrir la conexión
+                        conn.Open();
+
+                        // Ejecutar el comando (ExecuteNonQuery devuelve el número de filas afectadas)
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        // Si no se insertó ninguna fila, retornar falso
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejar las excepciones e informar al usuario
+                    Console.WriteLine($"Error al actualizar el prestamo: {ex.Message}");
+                    return false;
+                }
             }
         }
 

@@ -27,5 +27,10 @@ namespace BusinessLayer
             return prestamo.GetPrestmoByID(id);
         }
 
+        public Boolean ModifyCuotaAndMontoRestante(Decimal nuevoMonto, int idPrestamo)
+        {
+            return prestamo.ModifyCuotaAndMontoRestante(nuevoMonto, idPrestamo);
+        }
+
     }
 }

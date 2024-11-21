@@ -141,6 +141,7 @@ namespace PresentationLayer
             this.DueDate});
             this.dgvLoans.Location = new System.Drawing.Point(20, 20);
             this.dgvLoans.Name = "dgvLoans";
+            this.dgvLoans.ReadOnly = true;
             this.dgvLoans.RowHeadersWidth = 62;
             this.dgvLoans.RowTemplate.Height = 28;
             this.dgvLoans.Size = new System.Drawing.Size(1100, 300);
@@ -151,6 +152,7 @@ namespace PresentationLayer
             this.LoanId.HeaderText = "ID Préstamo";
             this.LoanId.MinimumWidth = 8;
             this.LoanId.Name = "LoanId";
+            this.LoanId.ReadOnly = true;
             this.LoanId.Width = 200;
             // 
             // LoanAmount
@@ -158,6 +160,7 @@ namespace PresentationLayer
             this.LoanAmount.HeaderText = "Monto Total";
             this.LoanAmount.MinimumWidth = 8;
             this.LoanAmount.Name = "LoanAmount";
+            this.LoanAmount.ReadOnly = true;
             this.LoanAmount.Width = 200;
             // 
             // PendingAmount
@@ -165,6 +168,7 @@ namespace PresentationLayer
             this.PendingAmount.HeaderText = "Saldo Pendiente";
             this.PendingAmount.MinimumWidth = 8;
             this.PendingAmount.Name = "PendingAmount";
+            this.PendingAmount.ReadOnly = true;
             this.PendingAmount.Width = 200;
             // 
             // DueDate
@@ -172,6 +176,7 @@ namespace PresentationLayer
             this.DueDate.HeaderText = "Fecha Vencimiento";
             this.DueDate.MinimumWidth = 8;
             this.DueDate.Name = "DueDate";
+            this.DueDate.ReadOnly = true;
             this.DueDate.Width = 200;
             // 
             // PayLoanInstallmentForm
